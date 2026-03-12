@@ -3,7 +3,7 @@
 
 > By [@alesanchezr](https://twitter.com/alesanchezr) and [other contributors](https://github.com/4GeeksAcademy/master-javascript-programming-exercises/graphs/contributors) at [4Geeks Academy](https://4geeksacademy.co/)
 
-*Estas instrucciones est·n disponibles en [espaÒol](https://github.com/4GeeksAcademy/master-javascript-programming-exercises/blob/main/README.es.md) :es:*
+*Estas instrucciones est√°n disponibles en [espa√±ol](https://github.com/4GeeksAcademy/master-javascript-programming-exercises/blob/main/README.es.md) :es:*
 <!-- endhide -->
 
 ### 170 auto-graded TypeScript exercises
