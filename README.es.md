@@ -1,20 +1,22 @@
 <!-- hide -->
 # Master de Skills TypeScript en 4Geeks Academy
 
-> Por [@alesanchezr](https://twitter.com/alesanchezr) y [otros colaboradores](https://github.com/4GeeksAcademy/master-javascript-programming-exercises/graphs/contributors) de [4Geeks Academy](https://4geeksacademy.co/)
+> Por [@alesanchezr](https://twitter.com/alesanchezr) y [otros colaboradores](https://github.com/4GeeksAcademy/master-typescript-programming-exercises/graphs/contributors) de [4Geeks Academy](https://4geeksacademy.co/)
+
+*Estas instrucciones tambi茅n est谩n disponibles en [ingl茅s](https://github.com/4GeeksAcademy/master-typescript-programming-exercises/blob/main/README.md) :us:*
 <!-- endhide -->
 
 ### 170 ejercicios autocorregidos de TypeScript
 
-Ejercicios pr醕ticos enfocados en funciones, colecciones y datos estructurados de tipo objeto en TypeScript.
+Ejercicios pr谩cticos enfocados en funciones, colecciones y datos estructurados de tipo objeto en TypeScript.
 
 <!-- hide -->
 
-## Instalaci髇 en un clic
+## Instalaci贸n en un clic
 
-Abre en [Codespaces](https://codespaces.new/?repo=4GeeksAcademy/master-javascript-programming-exercises) o [Gitpod](https://gitpod.io#https://github.com/4GeeksAcademy/master-javascript-programming-exercises).
+Abre en [Codespaces](https://codespaces.new/?repo=4GeeksAcademy/master-typescript-programming-exercises) o [Gitpod](https://gitpod.io#https://github.com/4GeeksAcademy/master-typescript-programming-exercises).
 
-## Instalaci髇 local
+## Instalaci贸n local
 
 1. Instala LearnPack:
 
@@ -37,39 +39,39 @@ learnpack start
 
 ## Bloques curriculares
 
-### Skill 7.2: Aprender a nombrar/etiquetar flujos con funciones
+### Skill 7.2: Aprender a nombrar o etiquetar flujos con funciones
 
 - **Rango:** `001-042`
-- **Enfoque:** declaraci髇 de funciones, par醡etros, tipo de retorno, procedimientos `void`, datos primitivos.
+- **Enfoque:** declaraci贸n de funciones, par谩metros, tipo de retorno, procedimientos `void`, datos primitivos.
 - **Dificultad:** principiante a intermedio-bajo.
 
-### Skill 8.1: Colecciones (arrays y matrices)
+### Skill 8.1: Colecciones (arreglos y matrices)
 
 - **Rango:** `043-115`
-- **Enfoque:** recorrido de arreglos, transformaciones, filtros, agregaciones, acceso/transformaci髇 de matrices, b鷖queda binaria.
+- **Enfoque:** recorrido de arreglos, transformaciones, filtros, agregaciones, acceso o transformaci贸n de matrices y b煤squeda binaria.
 - **Dificultad:** principiante a intermedio.
 
-### Skill 8.3: Trabajar datos estructurados de tipo objeto en TypeScript
+### Skill 8.3: Datos estructurados de tipo objeto en TypeScript
 
 - **Rango:** `116-170`
-- **Enfoque:** interfaces, objetos literales vs interfaces, propiedades opcionales, datos anidados, mutaci髇 vs inmutabilidad, paso por valor/referencia.
+- **Enfoque:** interfaces, objetos literales vs interfaces, propiedades opcionales, datos anidados, mutaci贸n vs inmutabilidad y paso por valor o referencia.
 - **Dificultad:** intermedio.
 
 ## Tabla de trazabilidad
 
 | Skill | Rango | Objetivos principales | Dificultad |
 |---|---|---|---|
-| 7.2 | 001-042 | Funciones, par醡etros, retornos, procedimientos `void` | Principiante -> Intermedio bajo |
-| 8.1 | 043-115 | Arrays, matrices, transformaciones y algoritmos de b鷖queda | Principiante -> Intermedio |
-| 8.3 | 116-170 | Objetos tipados, interfaces, campos opcionales, manipulaci髇 de datos | Intermedio |
+| 7.2 | 001-042 | Funciones, par谩metros, valores de retorno y procedimientos `void` | Principiante -> Intermedio bajo |
+| 8.1 | 043-115 | Arreglos, matrices, transformaciones y algoritmos de b煤squeda | Principiante -> Intermedio |
+| 8.3 | 116-170 | Objetos tipados, interfaces, campos opcionales y manipulaci贸n de datos | Intermedio |
 
 ## Contrato de archivos por ejercicio
 
 Cada ejercicio contiene:
 
-1. `app.ts`: fuente oficial del estudiante (solo prearmado).
-2. `app.js`: entry runtime para el bot髇 `Run` de LearnPack.
+1. `app.ts`: archivo principal oficial del estudiante (solo base inicial).
+2. `app.js`: entry runtime para el bot贸n `Run` de LearnPack.
 3. `README.md` + `README.es.md`: instrucciones.
-4. `test.js`: script de evaluaci髇 autom醫ica.
+4. `test.js`: script de evaluaci贸n autom谩tica.
 
-`app.ts` y `app.js` se mantienen intencionalmente como plantillas iniciales (sin l骻ica resuelta).
+`app.ts` y `app.js` se mantienen intencionalmente como plantillas iniciales (sin l贸gica resuelta).
