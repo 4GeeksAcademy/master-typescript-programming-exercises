@@ -8,7 +8,7 @@
     "us": "170 TypeScript exercises grouped by skill: function design (7.2), collections with arrays/matrices (8.1), and structured object data (8.3). Practice increasing difficulty with strict typing and auto-graded feedback.",
     "es": "170 ejercicios de TypeScript agrupados por skill: diseño de funciones (7.2), colecciones con arreglos/matrices (8.1) y datos estructurados de objetos (8.3). Práctica con dificultad progresiva, tipado estricto y retroalimentación automática."
   },
-  "preview": "",
+  "preview": "https://raw.githubusercontent.com/4GeeksAcademy/master-typescript-programming-exercises/main/preview.jpeg",
   "difficulty": "INTERMEDIATE",
   "duration": null,
   "projectType": "exercise",

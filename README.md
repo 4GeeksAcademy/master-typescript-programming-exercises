@@ -1,9 +1,11 @@
 <!-- hide -->
+
 # Master TypeScript Skills at 4Geeks Academy
 
-> By [@alesanchezr](https://twitter.com/alesanchezr) and [other contributors](https://github.com/4GeeksAcademy/master-typescript-programming-exercises/graphs/contributors) at [4Geeks Academy](https://4geeksacademy.co/)
+> By [@alesanchezr](https://twitter.com/alesanchezr) and [other contributors](https://github.com/4GeeksAcademy/master-typescript-programming-exercises/graphs/contributors) at [4Geeks Academy](https://4geeksacademy.com/)
 
-*These instructions are also available in [Spanish](https://github.com/4GeeksAcademy/master-typescript-programming-exercises/blob/main/README.es.md) :es:*
+_Estas instrucciones también están disponibles en [Español](https://github.com/4GeeksAcademy/master-typescript-programming-exercises/blob/main/README.es.md) :es:_
+
 <!-- endhide -->
 
 ### 170 auto-graded TypeScript exercises
@@ -35,6 +37,7 @@ learnpack plugins:install file:$(pwd)/learnpack-typescript-plugin
 ```bash
 learnpack start
 ```
+
 <!-- endhide -->
 
 ## Curriculum blocks
@@ -59,11 +62,11 @@ learnpack start
 
 ## Traceability table
 
-| Skill | Range | Main objectives | Difficulty |
-|---|---|---|---|
-| 7.2 | 001-042 | Functions, parameters, return values, `void` procedures | Beginner -> Low intermediate |
-| 8.1 | 043-115 | Arrays, matrices, transformations, search algorithms | Beginner -> Intermediate |
-| 8.3 | 116-170 | Typed objects, interfaces, optional fields, object data manipulation | Intermediate |
+| Skill | Range   | Main objectives                                                      | Difficulty                   |
+| ----- | ------- | -------------------------------------------------------------------- | ---------------------------- |
+| 7.2   | 001-042 | Functions, parameters, return values, `void` procedures              | Beginner -> Low intermediate |
+| 8.1   | 043-115 | Arrays, matrices, transformations, search algorithms                 | Beginner -> Intermediate     |
+| 8.3   | 116-170 | Typed objects, interfaces, optional fields, object data manipulation | Intermediate                 |
 
 ## Exercise file contract
 

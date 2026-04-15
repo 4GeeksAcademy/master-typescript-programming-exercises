@@ -1,9 +1,11 @@
 <!-- hide -->
+
 # Master de Skills TypeScript en 4Geeks Academy
 
-> Por [@alesanchezr](https://twitter.com/alesanchezr) y [otros colaboradores](https://github.com/4GeeksAcademy/master-typescript-programming-exercises/graphs/contributors) de [4Geeks Academy](https://4geeksacademy.co/)
+> Por [@alesanchezr](https://twitter.com/alesanchezr) y [otros colaboradores](https://github.com/4GeeksAcademy/master-typescript-programming-exercises/graphs/contributors) de [4Geeks Academy](https://4geeksacademy.com/)
 
-*Estas instrucciones también están disponibles en [inglés](https://github.com/4GeeksAcademy/master-typescript-programming-exercises/blob/main/README.md) :us:*
+_These instructions are also available in [English](https://github.com/4GeeksAcademy/master-typescript-programming-exercises/blob/main/README.md) :us:_
+
 <!-- endhide -->
 
 ### 170 ejercicios autocorregidos de TypeScript
@@ -35,6 +37,7 @@ learnpack plugins:install file:$(pwd)/learnpack-typescript-plugin
 ```bash
 learnpack start
 ```
+
 <!-- endhide -->
 
 ## Bloques curriculares
@@ -59,11 +62,11 @@ learnpack start
 
 ## Tabla de trazabilidad
 
-| Skill | Rango | Objetivos principales | Dificultad |
-|---|---|---|---|
-| 7.2 | 001-042 | Funciones, parámetros, valores de retorno y procedimientos `void` | Principiante -> Intermedio bajo |
-| 8.1 | 043-115 | Arreglos, matrices, transformaciones y algoritmos de búsqueda | Principiante -> Intermedio |
-| 8.3 | 116-170 | Objetos tipados, interfaces, campos opcionales y manipulación de datos | Intermedio |
+| Skill | Rango   | Objetivos principales                                                  | Dificultad                      |
+| ----- | ------- | ---------------------------------------------------------------------- | ------------------------------- |
+| 7.2   | 001-042 | Funciones, parámetros, valores de retorno y procedimientos `void`      | Principiante -> Intermedio bajo |
+| 8.1   | 043-115 | Arreglos, matrices, transformaciones y algoritmos de búsqueda          | Principiante -> Intermedio      |
+| 8.3   | 116-170 | Objetos tipados, interfaces, campos opcionales y manipulación de datos | Intermedio                      |
 
 ## Contrato de archivos por ejercicio
 
