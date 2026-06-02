@@ -3,9 +3,9 @@ function findLongestPalindrome(sentence: string): string {
   return '';
 }
 
-function reverseString(string: string): unknown[] {
+function reverseString(string: string): string {
   // your code here
-  return [];
+  return '';
 }
 
 function isPalindrome(word: string): boolean {

@@ -1,6 +1,5 @@
-function countAllCharacters(str: unknown[]): Record<string, unknown> {
+function countAllCharacters(str: string) {
   // your code here
-  return {} as Record<string, unknown>;
 }
 
 export {};

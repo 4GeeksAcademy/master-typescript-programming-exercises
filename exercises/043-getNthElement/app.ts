@@ -1,4 +1,4 @@
-function getNthElement(array: unknown[], n: number) {
+function getNthElement(array: number[], n: number) {
   // your code here
 }
 

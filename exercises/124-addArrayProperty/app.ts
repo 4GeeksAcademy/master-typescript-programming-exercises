@@ -1,6 +1,5 @@
-function addArrayProperty(obj: Record<string, unknown>, key: string, arr: unknown[]): Record<string, unknown> {
+function addArrayProperty(obj: Record<string, unknown>, key: string, arr: unknown[]) {
   // your code here
-  return {} as Record<string, unknown>;
 }
 
 export {};

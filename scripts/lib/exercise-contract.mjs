@@ -111,12 +111,18 @@ function extractAllFunctionNamesFromReadme(text) {
 function extractReturnHintFromReadme(text) {
   const lower = text.toLowerCase();
   if (/\bvoid\b|\bprocedure\b/.test(lower)) return "void";
-  if (/returns\s+(?:true|false|whether)|return\s+`true`|return\s+`false`|\bboolean\b/.test(lower)) {
+  if (/returns\s+(?:true|false|whether)|return\s+`true`|return\s+`false`|\bboolean\b/i.test(lower)) {
     return "boolean";
+  }
+  if (/array of strings|array containing only.*string|only the elements of the given array whose length/i.test(lower)) {
+    return "string[]";
   }
   if (/returns\s+an\s+array|return\s+an\s+empty\s+array/.test(lower)) return "unknown[]";
   if (/returns\s+an\s+object|return\s+an\s+empty\s+object/.test(lower)) return "Record<string, unknown>";
-  if (/returns\s+a\s+string|return\s+a\s+string/.test(lower)) return "string";
+  if (/returns the length|returns.*length of|returns a number|return type.*number/i.test(lower)) {
+    return "number";
+  }
+  if (/returns\s+a(?:\s+single)?\s+string|return\s+a\s+string/.test(lower)) return "string";
   if (/returns\s+a\s+number|return\s+a\s+number/.test(lower)) return "number";
   return null;
 }
@@ -196,7 +202,81 @@ function isNumericLiteralText(text) {
   return /^-?(\d+\.?\d*|\.\d+)(e[+-]?\d+)?$/i.test(text.trim());
 }
 
-function inferParamTypeFromName(name) {
+function isMixedCollectionContext(name, fnName = "") {
+  return /MixedElements|AmongMixed|^joinArrayOfArrays$|^getAllElementsButNth$/i.test(fnName);
+}
+
+function prefersGeneralReturn(fnName) {
+  return /^getProperty$|^getMatrixValue$|^get(?:Largest|Smallest)ElementAtProperty$|^get(?:First|Last|Nth)Element$|^get(?:First|Last|Nth)ElementOfProperty$|^getElementOfArrayProperty$/i.test(
+    fnName
+  );
+}
+
+function prefersGeneralArrayParam(fnName, paramName = "") {
+  if (isMixedCollectionContext(paramName, fnName)) return true;
+  if (/MixedElements|AmongMixed|^joinArrayOfArrays$|^getAllElementsButNth$|^transposeMatrix$|^getMatrixValue$/i.test(fnName)) {
+    return /^(arr|array|matrix|list|input|items)$/i.test(paramName);
+  }
+  return false;
+}
+
+function prefersGeneralArrayReturn(fnName) {
+  return /^getAllElementsButNth$|^joinArrayOfArrays$|^joinArraysOfArrays$/i.test(fnName);
+}
+
+function returnsScalarFromPropertyArray(fnName) {
+  return /^get(?:Largest|Smallest)ElementAtProperty$/i.test(fnName);
+}
+
+function returnsVoid(fnName, sources) {
+  if (sources.readme.flags.wantsVoid) return true;
+  if (/^removeProperty$|^printUserBadgeVoid$/i.test(fnName)) return true;
+  const solInferred = sources.solution.inferred?.[fnName];
+  const solSource = sources.solution.source || "";
+  if (solInferred && !solInferred.returnType) {
+    const fnPattern = new RegExp(`function\\s+${fnName}\\s*\\([^)]*\\)\\s*\\{([\\s\\S]*?)\\n\\}`, "m");
+    const bodyMatch = solSource.match(fnPattern);
+    if (bodyMatch && !/\breturn\b/.test(bodyMatch[1])) return true;
+  }
+  return false;
+}
+
+function inferArrayLiteralType(literalText) {
+  const trimmed = literalText.trim();
+  if (!trimmed.startsWith("[") || !trimmed.endsWith("]")) return null;
+  const inner = trimmed.slice(1, -1).trim();
+  if (!inner) return null;
+  const parts = splitTopLevelArgs(inner);
+  if (!parts.length) return null;
+  const kinds = parts.map((part) => {
+    const value = part.trim();
+    if (/^['"`]/.test(value)) return "string";
+    if (isNumericLiteralText(value)) return "number";
+    if (/^\{/.test(value)) return "object";
+    return "unknown";
+  });
+  if (kinds.every((k) => k === "string")) return "string[]";
+  if (kinds.every((k) => k === "number")) return "number[]";
+  return "unknown[]";
+}
+
+function isStringCollectionContext(name, fnName = "") {
+  if (/^words?$|^strings$|^letters$/i.test(name)) return true;
+  if (/Word|Letter|String|Name/i.test(fnName) && /^(arr|array|words|list|input|items)$/i.test(name)) {
+    return true;
+  }
+  return false;
+}
+
+function isNumericCollectionContext(name, fnName = "") {
+  if (/^(nums|numbers|values|scores|digits)$/i.test(name)) return true;
+  if (/^(arr|array)$/i.test(name) && /sum|average|product|compute|multiply|between|factorial|digit|modulo|largest|smallest|element|matrix|search|binary|pair|rotate|outlier|squareElements|filterEven|filterOdd/i.test(fnName)) {
+    return true;
+  }
+  return false;
+}
+
+function inferParamTypeFromName(name, fnName = "") {
   const map = {
     age: "number",
     n: "number",
@@ -215,26 +295,42 @@ function inferParamTypeFromName(name) {
     exponent: "number",
     key: "string",
     name: "string",
-    str: "string",
-    word: "string",
-    sentence: "string",
-    string: "string",
     firstName: "string",
     lastName: "string",
+    str: "string",
+    str1: "string",
+    str2: "string",
+    string1: "string",
+    string2: "string",
+    word: "string",
+    word1: "string",
+    word2: "string",
+    word3: "string",
+    sentence: "string",
+    string: "string",
     obj: "Record<string, unknown>",
     obj1: "Record<string, unknown>",
     obj2: "Record<string, unknown>",
     profile: "Record<string, unknown>",
     book: "Record<string, unknown>",
     input: "unknown",
-    array: "unknown[]",
-    arr: "unknown[]",
-    words: "unknown[]",
+    words: "string[]",
+    strings: "string[]",
+    letters: "string[]",
     inventory: "unknown[]",
     matrix: "unknown[][]",
     shoeList: "unknown[]",
   };
   if (map[name]) return map[name];
+  if (prefersGeneralArrayParam(fnName, name)) return "unknown[]";
+  if (isStringCollectionContext(name, fnName)) return "string[]";
+  if (isNumericCollectionContext(name, fnName)) return "number[]";
+  if (/^array$/i.test(name)) return "unknown[]";
+  if (/^matrix$/i.test(name)) return "unknown[][]";
+  if (/^arr$/i.test(name)) {
+    if (prefersGeneralArrayParam(fnName, name)) return "unknown[]";
+    return isNumericCollectionContext(name, fnName) ? "number[]" : "unknown[]";
+  }
   if (/Rate$|Frequency$|Years$|^time|^num|^count|^total|^amount|^bill|^price|^size|^limit|^max|^min|^start|^end|^low|^high|^target|^sum|^product|^factor|^digit|^score|^grade|^power|^modulo|^divisor|^multiplier|^operand|^value$/i.test(name)) {
     return "number";
   }
@@ -243,13 +339,31 @@ function inferParamTypeFromName(name) {
 }
 
 const ARITHMETIC_OPS = new Set([
-  ts.SyntaxKind.PlusToken,
   ts.SyntaxKind.MinusToken,
   ts.SyntaxKind.AsteriskToken,
   ts.SyntaxKind.SlashToken,
   ts.SyntaxKind.AsteriskAsteriskToken,
   ts.SyntaxKind.PercentToken,
 ]);
+
+function expressionLooksString(expr, sourceFile) {
+  if (!expr) return false;
+  if (ts.isStringLiteral(expr) || ts.isNoSubstitutionTemplateLiteral(expr)) return true;
+  if (ts.isTemplateExpression(expr)) return true;
+  if (ts.isBinaryExpression(expr) && expr.operatorToken.kind === ts.SyntaxKind.PlusToken) {
+    return (
+      expressionLooksString(expr.left, sourceFile) ||
+      expressionLooksString(expr.right, sourceFile)
+    );
+  }
+  return false;
+}
+
+function inferPlusOperandType(expr, sourceFile) {
+  if (expressionLooksString(expr, sourceFile)) return "string";
+  if (ts.isNumericLiteral(expr)) return "number";
+  return null;
+}
 
 const ARRAY_METHODS = new Set([
   "map",
@@ -294,7 +408,10 @@ function classifyExpression(expr, sourceFile, paramTypesByName = {}) {
   if (expr.kind === ts.SyntaxKind.TrueKeyword || expr.kind === ts.SyntaxKind.FalseKeyword) {
     return "boolean";
   }
-  if (ts.isArrayLiteralExpression(expr)) return "unknown[]";
+  if (ts.isArrayLiteralExpression(expr)) {
+    const literalType = inferArrayLiteralType(expr.getText(sourceFile));
+    return literalType || "unknown[]";
+  }
   if (ts.isObjectLiteralExpression(expr)) return "Record<string, unknown>";
 
   if (ts.isIdentifier(expr) && paramTypesByName[expr.text]) {
@@ -302,6 +419,16 @@ function classifyExpression(expr, sourceFile, paramTypesByName = {}) {
   }
 
   if (ts.isBinaryExpression(expr)) {
+    if (expr.operatorToken.kind === ts.SyntaxKind.PlusToken) {
+      const left = classifyExpression(expr.left, sourceFile, paramTypesByName);
+      const right = classifyExpression(expr.right, sourceFile, paramTypesByName);
+      if (left === "string" || right === "string") return "string";
+      if (expressionLooksString(expr.left, sourceFile) || expressionLooksString(expr.right, sourceFile)) {
+        return "string";
+      }
+      if (left === "number" && right === "number") return "number";
+      return "number";
+    }
     if (ARITHMETIC_OPS.has(expr.operatorToken.kind)) return "number";
     if (
       [
@@ -317,12 +444,6 @@ function classifyExpression(expr, sourceFile, paramTypesByName = {}) {
     ) {
       return "boolean";
     }
-    if (expr.operatorToken.kind === ts.SyntaxKind.PlusToken) {
-      const left = classifyExpression(expr.left, sourceFile, paramTypesByName);
-      const right = classifyExpression(expr.right, sourceFile, paramTypesByName);
-      if (left === "string" || right === "string") return "string";
-      if (left === "number" && right === "number") return "number";
-    }
   }
 
   if (ts.isPrefixUnaryExpression(expr)) {
@@ -335,12 +456,34 @@ function classifyExpression(expr, sourceFile, paramTypesByName = {}) {
   if (ts.isCallExpression(expr)) {
     if (ts.isPropertyAccessExpression(expr.expression)) {
       const method = expr.expression.name.text;
-      if (ARRAY_METHODS.has(method)) return "unknown[]";
+      const receiver = expr.expression.expression;
+      const receiverType =
+        ts.isIdentifier(receiver) && paramTypesByName[receiver.text]
+          ? paramTypesByName[receiver.text]
+          : null;
+      if (method === "join") return "string";
+      if (ARRAY_METHODS.has(method)) {
+        if (receiverType === "string[]") return "string[]";
+        if (receiverType === "number[]") return "number[]";
+        return "unknown[]";
+      }
       if (STRING_METHODS.has(method)) return method === "split" ? "string[]" : "string";
     }
   }
 
-  if (ts.isElementAccessExpression(expr)) return "unknown";
+  if (ts.isPropertyAccessExpression(expr)) {
+    if (expr.name.text === "length") return "number";
+    if (STRING_METHODS.has(expr.name.text)) return "string";
+    if (ARRAY_METHODS.has(expr.name.text)) return "unknown[]";
+  }
+
+  if (ts.isElementAccessExpression(expr)) {
+    if (ts.isIdentifier(expr.expression) && paramTypesByName[expr.expression.text]) {
+      const elementType = elementTypeFromArrayType(paramTypesByName[expr.expression.text]);
+      if (elementType) return elementType;
+    }
+    return "unknown";
+  }
 
   return null;
 }
@@ -373,7 +516,7 @@ function elementAccessIndexKind(arg) {
   return null;
 }
 
-function inferParamTypesFromSolutionBody(funcNode, sourceFile) {
+function inferParamTypesFromSolutionBody(funcNode, sourceFile, fnName = "") {
   const paramNames = funcNode.parameters.map((p) => p.name.getText(sourceFile));
   const usage = Object.fromEntries(paramNames.map((n) => [n, new Set()]));
 
@@ -391,12 +534,28 @@ function inferParamTypesFromSolutionBody(funcNode, sourceFile) {
         record(node.text, "number");
       }
 
+      if (
+        ts.isBinaryExpression(parent) &&
+        parent.operatorToken.kind === ts.SyntaxKind.PlusToken
+      ) {
+        const operandType =
+          inferPlusOperandType(parent.left, sourceFile) ||
+          inferPlusOperandType(parent.right, sourceFile);
+        if (operandType === "string") record(node.text, "string");
+        else if (operandType === "number") record(node.text, "number");
+      }
+
       if (ts.isElementAccessExpression(parent)) {
         if (parent.expression === node) {
           const keyKind = elementAccessIndexKind(parent.argumentExpression);
           if (keyKind === "string") record(node.text, "Record<string, unknown>");
-          else if (keyKind === "number") record(node.text, "unknown[]");
-          else record(node.text, inferParamTypeFromName(node.text));
+          else if (keyKind === "number") {
+            record(node.text, inferParamTypeFromName(node.text, fnName).includes("[]")
+              ? inferParamTypeFromName(node.text, fnName)
+              : "unknown[]");
+          } else {
+            record(node.text, inferParamTypeFromName(node.text, fnName));
+          }
         }
         if (parent.argumentExpression === node) {
           const keyKind = elementAccessIndexKind(node);
@@ -405,11 +564,18 @@ function inferParamTypesFromSolutionBody(funcNode, sourceFile) {
       }
 
       if (ts.isPropertyAccessExpression(parent) && parent.expression === node) {
-        record(node.text, "Record<string, unknown>");
         const method = parent.name.text;
-        if (ARRAY_METHODS.has(method)) record(node.text, "unknown[]");
-        if (STRING_METHODS.has(method)) record(node.text, "string");
-        if (method === "length") record(node.text, "unknown[]");
+        if (method === "length") {
+          const fromName = inferParamTypeFromName(node.text, fnName);
+          record(node.text, fromName.includes("[]") ? fromName : "string");
+        } else if (ARRAY_METHODS.has(method)) {
+          const fromName = inferParamTypeFromName(node.text, fnName);
+          record(node.text, fromName.includes("[]") ? fromName : "unknown[]");
+        } else if (STRING_METHODS.has(method)) {
+          record(node.text, "string");
+        } else {
+          record(node.text, "Record<string, unknown>");
+        }
       }
 
       if (ts.isCallExpression(parent) && parent.expression === node) {
@@ -491,7 +657,7 @@ function inferAllSolutionTypes(source) {
       const fnName = node.name.getText(sourceFile);
       functionNames.push(fnName);
 
-      const paramTypesFromBody = inferParamTypesFromSolutionBody(node, sourceFile);
+      const paramTypesFromBody = inferParamTypesFromSolutionBody(node, sourceFile, fnName);
       const paramTypesFromCalls = {};
       const callExamples = extractSolutionCallExamples(source, [fnName]);
       const bestCall = pickBestCallExample(callExamples);
@@ -499,7 +665,7 @@ function inferAllSolutionTypes(source) {
       const paramNames = node.parameters.map((p) => p.name.getText(sourceFile));
       if (bestCall) {
         paramNames.forEach((name, i) => {
-          const fromCall = inferParamTypeFromArg(bestCall.argsText, i, name);
+          const fromCall = inferParamTypeFromArg(bestCall.argsText, i, name, fnName);
           if (fromCall && fromCall !== "unknown") paramTypesFromCalls[name] = fromCall;
         });
       }
@@ -509,7 +675,7 @@ function inferAllSolutionTypes(source) {
         params[name] =
           paramTypesFromCalls[name] ||
           paramTypesFromBody[name] ||
-          inferParamTypeFromName(name);
+          inferParamTypeFromName(name, fnName);
       }
 
       const returnType = inferReturnTypeFromSolutionBody(node, sourceFile, params);
@@ -523,28 +689,96 @@ function inferAllSolutionTypes(source) {
   return inferred;
 }
 
-function inferParamTypeFromArg(argText, index, paramName) {
+function inferParamTypeFromArg(argText, index, paramName, fnName = "") {
   const parts = splitTopLevelArgs(argText);
 
   if (index < parts.length) {
     const arg = parts[index].trim();
     if (/^['"`]/.test(arg) || /^`/.test(arg)) return "string";
     if (isNumericLiteralText(arg)) return "number";
-    if (/^\[/.test(arg)) return "unknown[]";
+    if (/^\[/.test(arg)) return inferArrayLiteralType(arg) || inferParamTypeFromName(paramName, fnName);
     if (/^\{/.test(arg)) return "Record<string, unknown>";
     if (/^(true|false)$/.test(arg)) return "boolean";
   }
 
-  return inferParamTypeFromName(paramName);
+  return inferParamTypeFromName(paramName, fnName);
+}
+
+function elementTypeFromArrayType(arrayType) {
+  if (arrayType === "number[]") return "number";
+  if (arrayType === "string[]") return "string";
+  if (arrayType === "boolean[]") return "boolean";
+  if (arrayType?.endsWith("[]")) return "unknown";
+  return null;
+}
+
+function returnsSingleArrayElement(name) {
+  return /^get(?:First|Last|Nth)Element$|^get(?:First|Last|Nth)ElementOfProperty$|^getElementOfArrayProperty$|^get(?:Largest|Smallest)ElementAtProperty$/i.test(
+    name
+  );
+}
+
+function returnsArrayType(name) {
+  if (returnsSingleArrayElement(name)) return false;
+  if (
+    /^compute(?:Sum|Product|Average)|^getLengthOf|^count[A-Z]|^sum$|^average$|^sumDigits$|^calculateBillTotal$|^multiplyBetween$|^computeSumBetween$|^computeSummationToN$|^computeFactorialOfN$|^modulo$|^multiply$|^getIndexOf$|^binarySearch|^detectOutlier|^findPair|^getMatrixValue$|^getProperty$|^getAverageOfElements|^getSumOfAllElements|^getProductOfAllElements|^getSmallestElementAtProperty$|^getLargestElementAtProperty$|^find(?:Shortest|Smallest|Longest|Largest)Element$|^get(?:Longest|Shortest|Largest|Smallest)Element$|^find(?:Shortest|Longest)Word|^get(?:Longest|Shortest)Word|^findSmallestNumber|^getLargestNumber|^getLongestWord|^findShortestWord|^phoneNumber|^PhoneNumber|^Greet|^renderInventory$|^renderAverageCost|^getDisplayName|^renameBook|^Select$|^countAllCharacters$|^longestPalindrome$|^reverseString$|^convertObject|^transformFirst|^fromList|^transformEmployee|^listAll|^getAllKeys$/i.test(
+      name
+    )
+  ) {
+    return false;
+  }
+  if (inferStringArrayReturnFromName(name)) return true;
+  return /^(join|filter|remove|keep|addTo|getElements|square|flip|extend|search|findPair|transpose|getAllBut|removeFrom|removeNumbers|removeStringValues|removeOdd|removeEven|removeArray|removeNumber|getOdd|getEven|getSquared|PhoneNumberFormatter|addProperty|addObjectProperty|addFullNameProperty|addArrayProperty|removeNumberValues|removeArrayValues|removeOddValues|removeEvenValues|convertObjectToList|getAllButLastElementOfProperty|isRotated$)/i.test(
+    name
+  );
+}
+
+function inferScalarReturnFromParams(params, fnName) {
+  if (!returnsSingleArrayElement(fnName)) return null;
+  if (prefersGeneralReturn(fnName) || returnsScalarFromPropertyArray(fnName)) return "unknown";
+  const arrayParam = params.find((p) => p.type.endsWith("[]"));
+  if (arrayParam) return elementTypeFromArrayType(arrayParam.type) || "unknown";
+  return "unknown";
+}
+
+function inferArrayReturnFromParams(params, fnName) {
+  if (!returnsArrayType(fnName)) return null;
+  if (/^transposeMatrix$/i.test(fnName)) return "unknown[][]";
+  if (/^joinArrayOfArrays$|^joinArraysOfArrays$/i.test(fnName)) return "unknown[]";
+  const arrayParamTypes = params.map((p) => p.type).filter((t) => t.endsWith("[]"));
+  if (arrayParamTypes.length && arrayParamTypes.every((t) => t === "number[]")) {
+    return "number[]";
+  }
+  if (arrayParamTypes.length && arrayParamTypes.every((t) => t === "string[]")) {
+    return "string[]";
+  }
+  return null;
+}
+
+function inferStringArrayReturnFromName(name) {
+  return /filter(?:Even|Odd)?LengthWords|filterEvenLengthWords|filterOddLengthWords|getAllWords|getAllLetters|getOddLengthWordsAtProperty|getEvenLengthWordsAtProperty/i.test(
+    name
+  );
+}
+
+function inferObjectReturnFromName(name) {
+  return /^removeStringValuesLongerThan$|^removeStringValues$/i.test(name);
 }
 
 function inferReturnTypeFromName(name) {
   if (/^is[A-Z]/.test(name) || /^has[A-Z]/.test(name)) return "boolean";
-  if (/^get.*Length$|^count|^compute|^calculate|^sum$|^average$|^multiply|^modulo|^square$|^cube$|^double|^convertScore|^convert.*Grade|^getMatrixValue|^binarySearch|^detectOutlier|^findPair|^getProduct|^getSum|^getAverage|^getSmallest|^getLargest|^getElementOfArrayProperty|^getFirstElementOfProperty|^getLastElementOfProperty|^getNthElementOfProperty|^getProperty$|^phoneNumber|^sumDigits|^factorial|^billTotal|^power$|^area|^perimeter|^renderAverageCostPerDesigner$/i.test(name)) {
+  if (/^removeProperty$|^printUserBadgeVoid$/i.test(name)) return "void";
+  if (prefersGeneralReturn(name) || returnsScalarFromPropertyArray(name)) return "unknown";
+  if (inferObjectReturnFromName(name)) return "Record<string, unknown>";
+  if (
+    /^get(?:Length|Index)|^count[A-Z]|^compute|^calculate|^sum$|^average$|^multiply|^modulo|^square$|^cube$|^double|^convertScore|^convert.*Grade|^binarySearch|^detectOutlier|^findPair|^getProduct|^getSum|^getAverage|^findSmallestElement$|^getLargestElement$|^phoneNumber|^sumDigits|^factorial|^billTotal|^power$|^area|^perimeter|^renderAverageCostPerDesigner/i.test(
+      name
+    )
+  ) {
     return "number";
   }
   if (
-    /^find.*Word|^convert.*Grade|^getLace|^greet|^PhoneNumber|^findLongestPalindrome|^reverseString|^Greet|^phone|^longestPalindrome|^renderInventory$|^getDisplayName|^renameBook|^Select$|^Object|^Array|^listAll|^getAllKeys|^convertObject|^transformFirst|^fromList|^transformEmployee|^GreetCustomers|^getLaceNameDataForShoes|^renderInventory$|^phoneNumberFormatter$/i.test(
+    /^find.*Word|^convertDoubleSpaceToSingle$|^repeatString$|^convert.*Grade|^getLace|^greet|^PhoneNumber|^findLongestPalindrome$|^reverseString$|^Greet|^phone|^longestPalindrome|^renderInventory$|^getDisplayName|^renameBook|^Select$|^Object|^Array|^listAll|^getAllKeys|^convertObject|^transformFirst|^fromList|^transformEmployee|^GreetCustomers|^getLaceNameDataForShoes|^renderInventory$|^phoneNumberFormatter$|^getLongestWordOfMixedElements$|^findShortestWordAmongMixedElements$|^getLongestElement$|^findShortestElement$|^getLongestOfThreeWords$|^findShortestOfThreeWords$|^findMinLengthOfThreeWords$|^findMaxLengthOfThreeWords$/i.test(
       name
     )
   ) {
@@ -553,7 +787,17 @@ function inferReturnTypeFromName(name) {
   if (/^renderInventory$|^renderAverageCostPerDesigner$/.test(name)) {
     return null;
   }
-  if (/^getNthElement$|^getFirstElement$|^getLastElement$|^getElement|^filter|^remove|^add|^extend|^join|^transpose|^keep$|^squareElements|^flip|^search$|^findShortest|^findSmallest|^getAll|^removeString|^removeNumber|^removeArray|^removeOdd|^removeEven|^addArray|^addProperty|^addObject|^addFull|^removeProperty|^getOdd|^getEven|^getSquared|^getAllBut|^getElements|^filterOdd|^filterEven|^findPair|^joinArray|^joinThree|^getAllWords|^getAllLetters|^getAllElements|^removeFrom|^removeElement|^addToFront|^addToBack|^computeAverageLengthOfWords$/i.test(name)) {
+  if (inferStringArrayReturnFromName(name)) {
+    return "string[]";
+  }
+  if (returnsSingleArrayElement(name)) {
+    return null;
+  }
+  if (
+    /^joinArraysOfArrays$|^joinArrayOfArrays$|^findPairForSum$|^search$|^transposeMatrix$|^extend$|^removeNumbers|^squareElements$|^flipPairs$|^flipEveryNChars$|^binarySearchSortedArray$|^detectOutlierValue$|^isRotated$|^keep$|^removeElement$|^removeFrom|^addToFront|^addToBack$|^getElementsAfter$|^getElementsUpTo$|^getAllElementsButNth$|^filterEvenElements$|^filterOddElements$|^getAverageOfElementsAtProperty$|^getSumOfAllElementsAtProperty$|^getProductOfAllElementsAtProperty$|^getOddElementsAtProperty$|^getEvenElementsAtProperty$|^getSquaredElementsAtProperty$|^getAllButLastElementOfProperty$|^addProperty$|^addObjectProperty$|^addFullNameProperty$|^addArrayProperty$|^removeNumberValues$|^removeArrayValues$|^removeOddValues$|^removeEvenValues$|^removeNumbersLargerThan$|^removeNumbersLessThan$|^getElementsGreaterThanTenAtProperty$|^getElementsLessThanOneHundredAtProperty$|^getElementsThatEqual10AtProperty$|^countAllCharacters$|^renderInventory$|^getLaceNameDataForShoes$|^findSmallestnumberAmongMixedElements$|^getLargestNumberAmongMixedElements$|^averageIntegers$|^sum$|^calculateBillTotal$|^multiplyBetween$|^computeSumBetween$|^computeSummationToN$|^computeFactorialOfN$|^sumDigits$|^modulo$|^multiply$|^Select$|^transformFirstAndLast$|^fromListToObject$|^transformEmployeeData$|^getAllKeys$|^listAllValues$|^convertObjectToList$|^renderAverageCostPerDesigner$|^comparePassByValueAndReference$|^PhoneNumberFormatter$/i.test(
+      name
+    )
+  ) {
     return "unknown[]";
   }
   return null;
@@ -570,6 +814,23 @@ export function parseReadme(slug) {
   return { functionNames, returnHint, flags, callExamples, text };
 }
 
+function expectScalarReturnFromTest(text, fnName) {
+  if (returnsSingleArrayElement(fnName)) {
+    return (
+      /expect\(output\)\.toBe\(/.test(text) ||
+      /expect\(output\)\.toEqual\(\s*\{/.test(text)
+    );
+  }
+  return /expect\(output\)\.toBe\(\s*-?\d+\s*\)/.test(text) || /expect\(output\)\.toBe\(\s*['"`]/.test(text);
+}
+
+function inferScalarReturnFromTest(text) {
+  if (/expect\(output\)\.toBe\(\s*-?\d+\s*\)/.test(text)) return "number";
+  if (/expect\(output\)\.toBe\(\s*['"`]/.test(text)) return "string";
+  if (/expect\(output\)\.toEqual\(\s*\{/.test(text)) return "unknown";
+  return null;
+}
+
 export function parseTest(slug) {
   const filePath = path.join(exerciseDir(slug), "test.js");
   const text = readIfExists(filePath) || "";
@@ -581,12 +842,25 @@ export function parseTest(slug) {
 
   const returnTypes = {};
   for (const fnName of functionNames) {
-    if (new RegExp(`typeof\\s+${fnName}\\([^)]*\\)[^)]*'boolean'`).test(text)) {
+    const typeofMatches = [
+      ...text.matchAll(
+        new RegExp(`typeof\\s*\\(?\\s*${fnName}\\s*\\([^)]*\\)\\s*\\)?[^'\"]*['\"](\\w+)['\"]`, "g")
+      ),
+    ].map((m) => m[1]);
+    const typeofKinds = new Set(typeofMatches);
+
+    if (/\.toBe\(\s*true\s*\)|\.toBe\(\s*false\s*\)/.test(text)) {
       returnTypes[fnName] = "boolean";
-    } else if (new RegExp(`typeof\\s+${fnName}\\([^)]*\\)[^)]*'number'`).test(text)) {
+    } else if (typeofKinds.size > 1) {
+      returnTypes[fnName] = "unknown";
+    } else if (typeofKinds.has("boolean")) {
+      returnTypes[fnName] = "boolean";
+    } else if (typeofKinds.has("number")) {
       returnTypes[fnName] = "number";
-    } else if (new RegExp(`typeof\\s+${fnName}\\([^)]*\\)[^)]*'string'`).test(text)) {
+    } else if (typeofKinds.has("string")) {
       returnTypes[fnName] = "string";
+    } else if (typeofKinds.has("object")) {
+      returnTypes[fnName] = "unknown";
     } else if (new RegExp(`Array\\.isArray\\(${fnName}\\(`).test(text)) {
       returnTypes[fnName] = "unknown[]";
     }
@@ -603,11 +877,32 @@ export function parseTest(slug) {
         argsText: match[1],
       });
     }
-    if (new RegExp(`${fnName}\\([^)]*\\)[^)]*toEqual\\(\\s*\\[`).test(text)) {
+
+    const expectsArrayReturn =
+      new RegExp(`Array\\.isArray\\(\\s*${fnName}\\(`).test(text) ||
+      new RegExp(`Array\\.isArray\\(\\s*output\\)`).test(text);
+    const skipArrayToEqual = returnsSingleArrayElement(fnName) && !expectsArrayReturn;
+
+    if (!skipArrayToEqual && !prefersGeneralArrayReturn(fnName) && /toEqual\(\s*\[\s*['"`]/.test(text)) {
+      returnTypes[fnName] = "string[]";
+    } else if (!skipArrayToEqual && !prefersGeneralArrayReturn(fnName) && /toEqual\(\s*\[\s*-?\d/.test(text)) {
+      returnTypes[fnName] = "number[]";
+    } else if (expectScalarReturnFromTest(text, fnName)) {
+      returnTypes[fnName] = returnTypes[fnName] || inferScalarReturnFromTest(text);
+    } else if (!skipArrayToEqual && new RegExp(`${fnName}\\([^)]*\\)[^)]*toEqual\\(\\s*\\[`).test(text)) {
+      returnTypes[fnName] = returnTypes[fnName] || "unknown[]";
+    } else if (!skipArrayToEqual && /toEqual\(\s*\[/.test(text)) {
       returnTypes[fnName] = returnTypes[fnName] || "unknown[]";
     }
     if (new RegExp(`${fnName}\\([^)]*\\)[^)]*toEqual\\(\\s*\\{`).test(text)) {
       returnTypes[fnName] = returnTypes[fnName] || "Record<string, unknown>";
+    }
+
+    if (returnsSingleArrayElement(fnName) && /ElementOfProperty$|getElementOfArrayProperty$/i.test(fnName)) {
+      returnTypes[fnName] = "unknown";
+    }
+    if (prefersGeneralArrayReturn(fnName)) {
+      returnTypes[fnName] = "unknown[]";
     }
   }
 
@@ -660,17 +955,27 @@ function buildParams(fnName, sources) {
   const argsSource = bestTestCall?.argsText || bestReadmeCall?.argsText || "";
 
   return paramNames.map((name, i) => {
-    let type = solInferred?.params?.[name];
-    if (!type || type === "unknown") {
-      type = inferParamTypeFromArg(argsSource, i, name);
+    const fromCall = inferParamTypeFromArg(argsSource, i, name, fnName);
+    const fromBody = solInferred?.params?.[name];
+    const fromName = inferParamTypeFromName(name, fnName);
+
+    let type = fromName;
+    if (fromBody && fromBody !== "unknown" && fromBody !== "unknown[]") type = fromBody;
+    if (fromCall && fromCall !== "unknown") {
+      if (fromCall === "string" && type === "number") type = "string";
+      if (fromCall === "string[]" && type === "unknown[]") type = "string[]";
+      if (fromCall === "number[]" && type === "unknown[]") type = "number[]";
+      else if (!fromBody || fromBody === "unknown") type = fromCall;
+      else if (fromCall === fromBody) type = fromCall;
+      else type = fromCall;
     }
-    if (!type || type === "unknown") {
-      type = inferParamTypeFromName(name);
+    if (fromName === "string" && type === "unknown[]") type = "string";
+    if (fromName === "string[]" && type === "unknown[]") type = "string[]";
+    if (fromName === "unknown[][]" && type === "unknown[]") type = "unknown[][]";
+    if (prefersGeneralArrayParam(fnName, name) && type.endsWith("[]") && type !== "unknown[][]") {
+      type = "unknown[]";
     }
-    // Prefer solution-inferred types over call/name heuristics when available.
-    if (solInferred?.params?.[name] && solInferred.params[name] !== "unknown") {
-      type = solInferred.params[name];
-    }
+
     return { name, type: type || "unknown" };
   });
 }
@@ -680,10 +985,31 @@ function buildReturnType(fnName, sources) {
   const solFn = solution.functions.find((f) => f.name === fnName);
   const solInferred = solution.inferred?.[fnName];
 
-  if (readme.flags.wantsVoid) return "void";
+  if (returnsVoid(fnName, sources)) return "void";
+  if (inferObjectReturnFromName(fnName)) return "Record<string, unknown>";
+  if (test.returnTypes[fnName] === "boolean") return "boolean";
+  if (readme.returnHint === "boolean") return "boolean";
+  if (test.returnTypes[fnName] === "string[]") return "string[]";
+  if (test.returnTypes[fnName] === "number[]") return "number[]";
+  if (readme.returnHint === "string[]") return "string[]";
+  if (readme.returnHint === "number[]") return "number[]";
+  if (inferStringArrayReturnFromName(fnName)) return "string[]";
+  if (prefersGeneralArrayReturn(fnName)) return "unknown[]";
+  if (prefersGeneralReturn(fnName) || returnsScalarFromPropertyArray(fnName)) {
+    return "unknown";
+  }
+  if (/^transposeMatrix$/i.test(fnName)) return "unknown[][]";
   if (test.returnTypes[fnName]) return test.returnTypes[fnName];
   if (readme.returnHint) return readme.returnHint;
-  if (solInferred?.returnType) return solInferred.returnType;
+  if (solInferred?.returnType && solInferred.returnType !== "unknown") {
+    return solInferred.returnType;
+  }
+
+  const params = buildParams(fnName, sources);
+  const scalarReturn = inferScalarReturnFromParams(params, fnName);
+  if (scalarReturn) return scalarReturn;
+  const arrayReturn = inferArrayReturnFromParams(params, fnName);
+  if (arrayReturn) return arrayReturn;
 
   const fromName = inferReturnTypeFromName(fnName);
   if (fromName) return fromName;
@@ -770,6 +1096,8 @@ function defaultStubBody(returnType) {
     case "string":
       return "  // your code here\n  return '';";
     case "string[]":
+      return "  // your code here\n  return [];";
+    case "number[]":
       return "  // your code here\n  return [];";
     case "unknown[]":
       return "  // your code here\n  return [];";

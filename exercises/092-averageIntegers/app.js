@@ -6,5 +6,5 @@ function average(arr) {
 }
 function sum(arr) {
     // your code here
-    return [];
+    return 0;
 }

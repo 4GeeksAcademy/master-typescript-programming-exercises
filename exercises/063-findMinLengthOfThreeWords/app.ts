@@ -1,6 +1,6 @@
-function findMinLengthOfThreeWords(word1: unknown[], word2: unknown[], word3: unknown[]): string {
+function findMinLengthOfThreeWords(word1: string, word2: string, word3: string): number {
   // your code here
-  return '';
+  return 0;
 }
 
 export {};

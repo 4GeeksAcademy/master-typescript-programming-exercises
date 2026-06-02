@@ -1,4 +1,4 @@
-function isOddLength(word: unknown[]): boolean {
+function isOddLength(word: string): boolean {
   // your code here
   return false;
 }

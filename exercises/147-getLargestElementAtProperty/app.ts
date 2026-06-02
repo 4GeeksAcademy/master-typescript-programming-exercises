@@ -1,6 +1,5 @@
-function getLargestElementAtProperty(obj: Record<string, unknown>, key: string): unknown[] {
+function getLargestElementAtProperty(obj: Record<string, unknown>, key: string) {
   // your code here
-  return [];
 }
 
 export {};

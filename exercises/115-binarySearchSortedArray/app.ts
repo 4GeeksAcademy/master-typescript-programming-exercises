@@ -1,4 +1,4 @@
-function binarySearchSortedArray(values: unknown[], target: number): number {
+function binarySearchSortedArray(values: number[], target: number): number {
   // your code here
   return 0;
 }

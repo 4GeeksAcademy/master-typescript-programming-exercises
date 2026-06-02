@@ -1,6 +1,5 @@
-function getMatrixValue(matrix: unknown[][], row: number, col: number): Record<string, unknown> {
+function getMatrixValue(matrix: unknown[][], row: number, col: number) {
   // your code here
-  return {} as Record<string, unknown>;
 }
 
 export {};

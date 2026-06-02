@@ -1,4 +1,4 @@
-function findSmallestElement(arr: unknown[]): number {
+function findSmallestElement(arr: number[]): number {
   // your code here
   return 0;
 }

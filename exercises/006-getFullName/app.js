@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function getFullName(firstName, lastName) {
     // your code here
-    return 0;
+    return '';
 }

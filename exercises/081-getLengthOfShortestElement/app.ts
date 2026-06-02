@@ -1,4 +1,4 @@
-function getLengthOfShortestElement(arr: unknown[]): number {
+function getLengthOfShortestElement(arr: number[]): number {
   // your code here
   return 0;
 }

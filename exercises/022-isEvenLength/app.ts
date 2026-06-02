@@ -1,4 +1,4 @@
-function isEvenLength(word: unknown[]): boolean {
+function isEvenLength(word: string): boolean {
   // your code here
   return false;
 }

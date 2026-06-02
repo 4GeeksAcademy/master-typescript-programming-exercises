@@ -1,4 +1,4 @@
-function getAllWords(str: string): unknown[] {
+function getAllWords(str: string): string[] {
   // your code here
   return [];
 }

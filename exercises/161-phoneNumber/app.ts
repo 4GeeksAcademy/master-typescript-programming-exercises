@@ -1,4 +1,4 @@
-function PhoneNumberFormatter(numbers: number): number {
+function PhoneNumberFormatter(numbers: number[]): number {
   // your code here
   return 0;
 }

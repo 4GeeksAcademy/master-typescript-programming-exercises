@@ -1,4 +1,4 @@
-function transposeMatrix(matrix: unknown[][]): unknown[] {
+function transposeMatrix(matrix: unknown[][]): unknown[][] {
   // your code here
   return [];
 }

@@ -1,4 +1,4 @@
-function findPairForSum(array: unknown[], number: number): unknown[] {
+function findPairForSum(array: number[], number: number): number[] {
   // your code here
   return [];
 }

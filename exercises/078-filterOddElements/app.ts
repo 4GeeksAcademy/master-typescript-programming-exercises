@@ -1,4 +1,4 @@
-function filterOddElements(arr: unknown[]): unknown[] {
+function filterOddElements(arr: number[]): number[] {
   // your code here
   return [];
 }

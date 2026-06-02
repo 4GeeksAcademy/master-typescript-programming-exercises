@@ -1,4 +1,4 @@
-function getFirstElement(array: unknown[]) {
+function getFirstElement(array: number[]) {
   // your code here
 }
 
