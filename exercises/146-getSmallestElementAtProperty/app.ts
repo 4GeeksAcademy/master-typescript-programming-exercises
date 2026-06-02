@@ -1,6 +1,6 @@
-function getSmallestElementAtProperty(obj: Record<string, unknown>, key: string): unknown[] {
+function getSmallestElementAtProperty(obj: Record<string, unknown>, key: string): number {
   // your code here
-  return [];
+  return 0;
 }
 
 export {};

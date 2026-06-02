@@ -1,6 +1,6 @@
-function getFirstElement(array: number[]): number[] {
+function getFirstElement(array: number[]): number {
   // your code here
-  return [];
+  return 0;
 }
 
 export {};

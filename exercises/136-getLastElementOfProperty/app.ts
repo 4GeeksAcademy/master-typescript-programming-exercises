@@ -1,6 +1,5 @@
-function getLastElementOfProperty(obj: Record<string, unknown>, key: string): number[] {
+function getLastElementOfProperty(obj: Record<string, unknown>, key: string) {
   // your code here
-  return [];
 }
 
 export {};

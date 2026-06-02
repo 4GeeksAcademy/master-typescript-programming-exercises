@@ -1,4 +1,4 @@
-function getLongestWordOfMixedElements(arr: string[]): string[] {
+function getLongestWordOfMixedElements(arr: string[]): unknown[] {
   // your code here
   return [];
 }
