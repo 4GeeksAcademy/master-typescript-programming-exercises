@@ -1,6 +1,5 @@
-function getNthElementOfProperty(obj: unknown, key: string, n: number): number {
+function getNthElementOfProperty(obj: Record<string, unknown>, key: string, n: number) {
   // your code here
-  return 0;
 }
 
 export {};

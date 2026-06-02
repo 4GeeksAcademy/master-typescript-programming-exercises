@@ -1,0 +1,86 @@
+{
+  "163-FashionInventory-A": {
+    "preamble": "interface Shoe {\n  name: string;\n  price: number;\n}\n\ninterface InventoryItem {\n  name: string;\n  shoes: Shoe[];\n}",
+    "functions": [
+      {
+        "name": "renderInventory",
+        "params": [{ "name": "inventory", "type": "InventoryItem[]" }],
+        "returnType": "unknown[][]"
+      }
+    ]
+  },
+  "164-FashionInventory-B": {
+    "preamble": "interface Shoe {\n  name: string;\n  price: number;\n}\n\ninterface InventoryItem {\n  name: string;\n  shoes: Shoe[];\n}",
+    "functions": [
+      {
+        "name": "renderAverageCostPerDesigner",
+        "params": [{ "name": "inventory", "type": "InventoryItem[]" }],
+        "returnType": "string"
+      }
+    ]
+  },
+  "165-FashionInventory-C": {
+    "functions": [
+      {
+        "name": "renderInventory",
+        "params": [{ "name": "shoeList", "type": "unknown[][]" }],
+        "returnType": "string"
+      }
+    ]
+  },
+  "166-FashionInventory-D": {
+    "functions": [
+      {
+        "name": "getLaceNameDataForShoes",
+        "params": [{ "name": "inventory", "type": "unknown[][]" }],
+        "returnType": "string"
+      }
+    ]
+  },
+  "167-buildUserProfileWithInterface": {
+    "preamble": "interface UserProfile {\n  name: string;\n  age: number;\n  isAdult: boolean;\n}",
+    "functions": [
+      {
+        "name": "buildUserProfile",
+        "params": [
+          { "name": "name", "type": "string" },
+          { "name": "age", "type": "number" }
+        ],
+        "returnType": "UserProfile"
+      }
+    ]
+  },
+  "168-getDisplayNameFromOptionalProfile": {
+    "preamble": "interface Profile {\n  firstName: string;\n  nickname?: string;\n}",
+    "functions": [
+      {
+        "name": "getDisplayName",
+        "params": [{ "name": "profile", "type": "Profile" }],
+        "returnType": "string"
+      }
+    ]
+  },
+  "169-renameBookMutableVsImmutable": {
+    "preamble": "interface Book {\n  title: string;\n  author: string;\n}",
+    "functions": [
+      {
+        "name": "renameBookImmutable",
+        "params": [
+          { "name": "book", "type": "Book" },
+          { "name": "newTitle", "type": "string" }
+        ],
+        "returnType": "Book"
+      }
+    ]
+  },
+  "170-comparePassByValueAndReference": {
+    "preamble": "interface ComparisonResult {\n  original: unknown;\n  copy: unknown;\n  sameReference: boolean;\n}",
+    "functions": [
+      {
+        "name": "comparePassByValueAndReference",
+        "params": [{ "name": "input", "type": "unknown" }],
+        "returnType": "ComparisonResult"
+      }
+    ]
+  }
+}

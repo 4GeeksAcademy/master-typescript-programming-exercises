@@ -1,6 +1,6 @@
-function addToFront(arr: unknown[], element: number): string {
+function addToFront(arr: unknown[], element: number): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

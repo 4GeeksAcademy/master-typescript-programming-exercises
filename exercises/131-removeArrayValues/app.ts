@@ -1,6 +1,6 @@
-function removeArrayValues(obj: unknown): unknown[] {
+function removeArrayValues(obj: Record<string, unknown>): Record<string, unknown> {
   // your code here
-    return [];
+  return {} as Record<string, unknown>;
 }
 
 export {};

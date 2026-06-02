@@ -1,6 +1,6 @@
-function getElementsGreaterThan10AtProperty(obj: unknown, key: string): string {
+function getElementsGreaterThan10AtProperty(obj: Record<string, unknown>, key: string): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

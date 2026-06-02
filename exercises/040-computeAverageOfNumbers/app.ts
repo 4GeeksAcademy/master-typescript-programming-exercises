@@ -1,4 +1,4 @@
-function computeAverageOfNumbers(nums: unknown[], arg2: number, arg3: unknown): number {
+function computeAverageOfNumbers(nums: unknown[]): number {
   // your code here
   return 0;
 }

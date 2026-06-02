@@ -1,4 +1,6 @@
-function computeAverageOfNumbers(nums, arg2, arg3) {
-  // your code here
-  return 0;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function computeAverageOfNumbers(nums) {
+    // your code here
+    return 0;
 }

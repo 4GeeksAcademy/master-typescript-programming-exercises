@@ -1,4 +1,4 @@
-function getAverageOfElementsAtProperty(obj: Record<string, unknown>, key: number, arg3: unknown, arg4: string): number {
+function getAverageOfElementsAtProperty(obj: Record<string, unknown>, key: string): number {
   // your code here
   return 0;
 }

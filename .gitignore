@@ -12,6 +12,8 @@
 !package.json
 !package-lock.json
 !tsconfig.json
+!scripts
+!scripts/**
 !.vscode
 !.vscode/**
 !.github

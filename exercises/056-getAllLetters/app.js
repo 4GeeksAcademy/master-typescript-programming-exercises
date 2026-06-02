@@ -1,4 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function getAllLetters(str) {
-  // your code here
-  return '';
+    // your code here
+    return [];
 }

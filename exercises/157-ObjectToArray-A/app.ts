@@ -1,6 +1,6 @@
-function getAllKeys(obj: Record<string, unknown>, arg2: unknown, arg3: unknown, arg4: unknown): string {
+function getAllKeys(obj: Record<string, unknown>): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

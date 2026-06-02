@@ -1,6 +1,6 @@
-function getElementsUpTo(array: unknown[], n: unknown, arg3: number): string {
+function getElementsUpTo(array: unknown[], n: number): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

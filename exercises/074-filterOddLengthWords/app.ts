@@ -1,6 +1,6 @@
-function filterOddLengthWords(words: unknown[]): number {
+function filterOddLengthWords(words: unknown[]): unknown[] {
   // your code here
-    return 0;
+  return [];
 }
 
 export {};

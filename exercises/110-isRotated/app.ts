@@ -1,4 +1,4 @@
-function isRotated(str1: string, str2: string): boolean {
+function isRotated(str1: unknown[], str2: unknown[]): boolean {
   // your code here
   return false;
 }

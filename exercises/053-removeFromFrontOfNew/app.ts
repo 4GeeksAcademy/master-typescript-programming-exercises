@@ -1,6 +1,6 @@
-function removeFromFrontOfNew(arr: unknown[], arg2: unknown): string {
+function removeFromFrontOfNew(arr: unknown[]): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

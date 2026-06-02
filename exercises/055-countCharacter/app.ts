@@ -1,4 +1,4 @@
-function countCharacter(str: string, char: string): number {
+function countCharacter(str: unknown[], char: string): number {
   // your code here
   return 0;
 }

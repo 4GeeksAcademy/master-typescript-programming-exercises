@@ -1,4 +1,4 @@
-function getSumOfAllElementsAtProperty(obj: Record<string, unknown>, key: unknown, arg3: string): number {
+function getSumOfAllElementsAtProperty(obj: Record<string, unknown>, key: string): number {
   // your code here
   return 0;
 }

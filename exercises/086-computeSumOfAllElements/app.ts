@@ -1,4 +1,4 @@
-function computeSumOfAllElements(arr: unknown[], arg2: unknown): number {
+function computeSumOfAllElements(arr: unknown[]): number {
   // your code here
   return 0;
 }

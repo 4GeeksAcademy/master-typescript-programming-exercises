@@ -1,6 +1,6 @@
-function joinArrays(arr1: unknown[], arr2: unknown[]): string {
+function joinArrays(arr1: unknown[], arr2: unknown[]): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

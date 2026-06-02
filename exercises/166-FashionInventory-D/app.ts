@@ -1,4 +1,4 @@
-function getLaceNameDataForShoes(inventory: unknown): string {
+function getLaceNameDataForShoes(inventory: unknown[][]): string {
   // your code here
   return '';
 }

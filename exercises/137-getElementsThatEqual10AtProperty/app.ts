@@ -1,6 +1,6 @@
-function getElementsThatEqual10AtProperty(obj: Record<string, unknown>, key: string): string {
+function getElementsThatEqual10AtProperty(obj: Record<string, unknown>, key: string): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

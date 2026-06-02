@@ -1,4 +1,4 @@
-function getIndexOf(char: string, str: string): number {
+function getIndexOf(char: string, str: unknown[]): number {
   // your code here
   return 0;
 }

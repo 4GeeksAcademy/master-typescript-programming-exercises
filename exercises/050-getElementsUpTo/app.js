@@ -1,4 +1,6 @@
-function getElementsUpTo(array, n, arg3) {
-  // your code here
-  return '';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function getElementsUpTo(array, n) {
+    // your code here
+    return [];
 }

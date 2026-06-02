@@ -1,6 +1,6 @@
-function addFullNameProperty(obj: Record<string, unknown>): unknown[] {
+function addFullNameProperty(obj: Record<string, unknown>): Record<string, unknown> {
   // your code here
-    return [];
+  return {} as Record<string, unknown>;
 }
 
 export {};

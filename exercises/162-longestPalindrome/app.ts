@@ -3,14 +3,14 @@ function findLongestPalindrome(sentence: string): string {
   return '';
 }
 
-function reverseString(string: string): number {
+function reverseString(string: string): unknown[] {
   // your code here
-    return 0;
+  return [];
 }
 
-function isPalindrome(word: string): number {
+function isPalindrome(word: string): boolean {
   // your code here
-    return 0;
+  return false;
 }
 
 export {};

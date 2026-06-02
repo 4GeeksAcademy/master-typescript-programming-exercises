@@ -1,3 +1,6 @@
-function filterEvenLengthWords(words, arg2) {
-  // your code here
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function filterEvenLengthWords(words) {
+    // your code here
+    return [];
 }
