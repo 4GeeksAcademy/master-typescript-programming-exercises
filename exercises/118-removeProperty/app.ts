@@ -1,6 +1,5 @@
-function removeProperty(obj: Record<string, unknown>, key: string): unknown[] {
+function removeProperty(obj: Record<string, unknown>, key: string): void {
   // your code here
-  return [];
 }
 
 export {};

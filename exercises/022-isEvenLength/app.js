@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function isEvenLength(word) {
     // your code here
-    return 0;
+    return false;
 }

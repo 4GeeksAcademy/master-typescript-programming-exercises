@@ -1,6 +1,5 @@
-function getSmallestElementAtProperty(obj: Record<string, unknown>, key: string): number {
+function getSmallestElementAtProperty(obj: Record<string, unknown>, key: string) {
   // your code here
-  return 0;
 }
 
 export {};

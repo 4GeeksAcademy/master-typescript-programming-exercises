@@ -1,6 +1,5 @@
-function getLastElement(array: number[]): number {
+function getLastElement(array: number[]) {
   // your code here
-  return 0;
 }
 
 export {};

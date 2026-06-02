@@ -1,6 +1,6 @@
-function convertDoubleSpaceToSingle(str: string): string[] {
+function convertDoubleSpaceToSingle(str: string): string {
   // your code here
-  return [];
+  return '';
 }
 
 export {};

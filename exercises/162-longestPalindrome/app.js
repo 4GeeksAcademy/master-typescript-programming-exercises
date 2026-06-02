@@ -6,7 +6,7 @@ function findLongestPalindrome(sentence) {
 }
 function reverseString(string) {
     // your code here
-    return [];
+    return '';
 }
 function isPalindrome(word) {
     // your code here

@@ -3,9 +3,9 @@ function average(arr: number[]): number {
   return 0;
 }
 
-function sum(arr: number[]): unknown[] {
+function sum(arr: number[]): number {
   // your code here
-  return [];
+  return 0;
 }
 
 export {};

@@ -1,4 +1,4 @@
-function getAllElementsButNth(array: number[], n: number): string[] {
+function getAllElementsButNth(array: unknown[], n: number): unknown[] {
   // your code here
   return [];
 }

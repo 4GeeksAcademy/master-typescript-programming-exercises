@@ -1,6 +1,6 @@
-function checkAge(name: string, age: number): string {
+function checkAge(name: string, age: number): boolean {
   // your code here
-  return '';
+  return false;
 }
 
 export {};

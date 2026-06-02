@@ -1,6 +1,6 @@
-function search(array: number[], value: number): number[] {
+function search(array: number[], value: number): number {
   // your code here
-  return [];
+  return 0;
 }
 
 export {};
