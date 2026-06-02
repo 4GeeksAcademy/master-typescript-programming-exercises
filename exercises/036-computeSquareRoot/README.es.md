@@ -1,4 +1,4 @@
-# `045` computeSquareRoot
+# `036` computeSquareRoot
 
 ## 📝 Instrucciones:
 

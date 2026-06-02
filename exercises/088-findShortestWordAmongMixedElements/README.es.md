@@ -1,4 +1,4 @@
-# `124` findShortestWordAmongMixedElements
+# `088` findShortestWordAmongMixedElements
 
 ## 📝 Instrucciones:
 

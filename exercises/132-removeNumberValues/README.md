@@ -1,4 +1,4 @@
-# `074` removeNumberValues
+# `132` removeNumberValues
 
 ## 📝 Instructions:
 

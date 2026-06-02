@@ -1,4 +1,4 @@
-# `046` doubleSquareRootOf
+# `037` doubleSquareRootOf
 
 ## 📝 Instructions:
 

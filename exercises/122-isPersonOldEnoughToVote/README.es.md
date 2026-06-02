@@ -1,4 +1,4 @@
-# `035` isPersonOldEnoughToVote
+# `122` isPersonOldEnoughToVote
 
 ## 📝 Instrucciones:
 

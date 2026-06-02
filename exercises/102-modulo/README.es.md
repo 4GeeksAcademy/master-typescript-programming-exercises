@@ -1,4 +1,4 @@
-# `138` modulo
+# `102` modulo
 
 ## 📝 Instrucciones:
 

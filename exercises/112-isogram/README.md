@@ -1,4 +1,4 @@
-# `152` isogram
+# `112` isogram
 
 ## 📝 Instructions:
 

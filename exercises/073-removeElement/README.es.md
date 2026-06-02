@@ -1,4 +1,4 @@
-# `089` removeElement
+# `073` removeElement
 
 ## 📝 Instrucciones:
 

@@ -1,4 +1,4 @@
-# `095` getElementsThatEqual10AtProperty
+# `137` getElementsThatEqual10AtProperty
 
 ## 📝 Instrucciones:
 

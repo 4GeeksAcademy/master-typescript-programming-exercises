@@ -1,4 +1,4 @@
-# `130` multiplyBetween
+# `094` multiplyBetween
 
 ## 📝 Instrucciones:
 

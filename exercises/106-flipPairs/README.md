@@ -1,4 +1,4 @@
-# `146` flipPairs
+# `106` flipPairs
 
 ## 📝 Instructions:
 

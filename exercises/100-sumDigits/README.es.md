@@ -1,4 +1,4 @@
-# `136` sumDigits
+# `100` sumDigits
 
 ## 📝 Instrucciones:
 

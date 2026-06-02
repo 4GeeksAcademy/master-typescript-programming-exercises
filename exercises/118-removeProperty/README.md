@@ -1,4 +1,4 @@
-# `031` removeProperty
+# `118` removeProperty
 
 ## 📝 Instructions:
 

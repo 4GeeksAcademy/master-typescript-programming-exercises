@@ -1,4 +1,4 @@
-# `098` getOddLengthWordsAtProperty
+# `140` getOddLengthWordsAtProperty
 
 ## 📝 Instrucciones:
 

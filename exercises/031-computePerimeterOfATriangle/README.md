@@ -1,4 +1,4 @@
-# `040` computePerimeterOfATriangle
+# `031` computePerimeterOfATriangle
 
 ## 📝 Instructions:
 

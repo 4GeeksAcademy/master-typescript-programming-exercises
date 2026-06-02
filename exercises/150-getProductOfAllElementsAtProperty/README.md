@@ -1,4 +1,4 @@
-# `108` getProductOfAllElementsAtProperty
+# `150` getProductOfAllElementsAtProperty
 
 ## 📝 Instructions:
 

@@ -1,4 +1,4 @@
-# `103` getSquaredElementsAtProperty
+# `145` getSquaredElementsAtProperty
 
 ## 📝 Instrucciones:
 

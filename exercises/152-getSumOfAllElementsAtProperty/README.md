@@ -1,4 +1,4 @@
-# `110` getSumOfAllElementsAtProperty
+# `152` getSumOfAllElementsAtProperty
 
 ## 📝 Instructions:
 

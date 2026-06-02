@@ -1,4 +1,4 @@
-# `077` areValidCredentials
+# `061` areValidCredentials
 
 ## 📝 Instructions:
 

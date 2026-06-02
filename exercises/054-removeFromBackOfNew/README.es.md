@@ -1,4 +1,4 @@
-# `061` removeFromBackOfNew
+# `054` removeFromBackOfNew
 
 ## 📝 Instrucciones:
 

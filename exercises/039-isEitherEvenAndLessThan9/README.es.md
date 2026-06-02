@@ -1,4 +1,4 @@
-# `048` isEitherEvenAndLessThan9
+# `039` isEitherEvenAndLessThan9
 
 ## 📝 Instrucciones:
 

@@ -1,4 +1,4 @@
-# `057` getElementsUpTo
+# `050` getElementsUpTo
 
 ## 📝 Instructions:
 

@@ -1,4 +1,4 @@
-# `131` computeSumBetween
+# `095` computeSumBetween
 
 ## 📝 Instructions:
 

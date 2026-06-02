@@ -1,4 +1,4 @@
-# `134` convertScoreToGradeWithPlusAndMinus
+# `098` convertScoreToGradeWithPlusAndMinus
 
 ## 📝 Instructions:
 

@@ -1,4 +1,4 @@
-# `055` joinArrays
+# `048` joinArrays
 
 ## 📝 Instructions:
 

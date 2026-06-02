@@ -1,4 +1,4 @@
-# `047` isEitherEvenOrAreBoth7
+# `038` isEitherEvenOrAreBoth7
 
 ## 📝 Instrucciones:
 

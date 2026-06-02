@@ -1,4 +1,4 @@
-# `139` multiply
+# `103` multiply
 
 ## 📝 Instructions:
 

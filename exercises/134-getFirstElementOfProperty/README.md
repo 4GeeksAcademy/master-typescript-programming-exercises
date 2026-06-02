@@ -1,4 +1,4 @@
-# `092` getFirstElementOfProperty
+# `134` getFirstElementOfProperty
 
 ## 📝 Instructions:
 

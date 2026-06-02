@@ -1,4 +1,4 @@
-# `137` computeCompoundInterest
+# `101` computeCompoundInterest
 
 ## 📝 Instructions:
 

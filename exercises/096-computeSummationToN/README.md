@@ -1,4 +1,4 @@
-# `132` computeSummationToN
+# `096` computeSummationToN
 
 ## 📝 Instructions:
 

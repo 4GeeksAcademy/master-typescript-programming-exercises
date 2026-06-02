@@ -1,4 +1,4 @@
-# `029` getProperty
+# `116` getProperty
 
 ## 📝 Instrucciones:
 

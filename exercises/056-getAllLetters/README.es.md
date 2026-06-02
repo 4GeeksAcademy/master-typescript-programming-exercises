@@ -1,4 +1,4 @@
-# `063` getAllLetters
+# `056` getAllLetters
 
 ## 📝 Instrucciones:
 

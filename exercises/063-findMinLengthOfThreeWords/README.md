@@ -1,4 +1,4 @@
-# `079` findMinLengthOfThreeWords
+# `063` findMinLengthOfThreeWords
 
 ## 📝 Instructions: 
 

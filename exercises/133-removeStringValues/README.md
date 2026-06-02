@@ -1,4 +1,4 @@
-# `075` removeStringValues
+# `133` removeStringValues
 
 ## 📝 Instructions:
 

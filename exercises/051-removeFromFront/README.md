@@ -1,4 +1,4 @@
-# `058` removeFromFront
+# `051` removeFromFront
 
 ## 📝 Instructions:
 

@@ -1,4 +1,4 @@
-# `151` search
+# `111` search
 
 Given a sorted array, such as this:
 

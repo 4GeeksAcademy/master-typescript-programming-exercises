@@ -1,4 +1,4 @@
-# `083` findShortestOfThreeWords
+# `067` findShortestOfThreeWords
 
 ## 📝 Instructions:
 

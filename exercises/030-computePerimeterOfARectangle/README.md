@@ -1,4 +1,4 @@
-# `039` computePerimeterOfARectangle
+# `030` computePerimeterOfARectangle
 
 ## 📝 Instructions:
 

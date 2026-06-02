@@ -1,4 +1,4 @@
-# `044` computePower
+# `035` computePower
 
 ## 📝 Instrucciones:
 

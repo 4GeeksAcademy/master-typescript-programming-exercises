@@ -1,4 +1,4 @@
-# `036` isPersonOldEnoughToDrink
+# `123` isPersonOldEnoughToDrink
 
 ## 📝 Instructions:
 
