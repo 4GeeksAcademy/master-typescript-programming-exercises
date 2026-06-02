@@ -1,4 +1,4 @@
-function removeElement(arr: unknown[], n: unknown, arg3: number): unknown[] {
+function removeElement(arr: unknown[], n: number): unknown[] {
   // your code here
   return [];
 }

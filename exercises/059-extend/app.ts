@@ -1,6 +1,6 @@
-function extend(obj1: unknown, obj2: unknown): unknown[] {
+function extend(obj1: Record<string, unknown>, obj2: Record<string, unknown>): Record<string, unknown> {
   // your code here
-    return [];
+  return {} as Record<string, unknown>;
 }
 
 export {};

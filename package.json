@@ -4,7 +4,11 @@
   "private": true,
   "description": "TypeScript tooling and LearnPack plugin for master programming exercises.",
   "scripts": {
-    "typecheck": "tsc --noEmit -p tsconfig.json"
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "audit:signatures": "node scripts/audit-signatures.mjs",
+    "regenerate:app-ts": "node scripts/regenerate-app-ts.mjs",
+    "transpile:all": "node scripts/transpile-all.mjs",
+    "fix:signatures": "node scripts/regenerate-app-ts.mjs && node scripts/transpile-all.mjs"
   },
   "devDependencies": {
     "typescript": "^5.9.2"

@@ -1,4 +1,6 @@
-function keep(arr, keeper, arg3, arg4) {
-  // your code here
-  return '';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function keep(arr, keeper) {
+    // your code here
+    return [];
 }

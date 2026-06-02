@@ -1,6 +1,5 @@
-function getProperty(obj: unknown, key: string): unknown[] {
+function getProperty(obj: Record<string, unknown>, key: string) {
   // your code here
-    return [];
 }
 
 export {};

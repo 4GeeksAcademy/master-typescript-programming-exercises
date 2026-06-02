@@ -1,4 +1,4 @@
-function getLengthOfTwoWords(word1: string, word2: string): number {
+function getLengthOfTwoWords(word1: unknown[], word2: unknown[]): number {
   // your code here
   return 0;
 }

@@ -1,4 +1,4 @@
-function filterEvenElements(arr: unknown[], arg2: unknown): unknown[] {
+function filterEvenElements(arr: unknown[]): unknown[] {
   // your code here
   return [];
 }

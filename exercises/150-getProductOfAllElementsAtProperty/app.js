@@ -1,4 +1,6 @@
-function getProductOfAllElementsAtProperty(obj, key, arg3, arg4, arg5, arg6) {
-  // your code here
-  return 0;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function getProductOfAllElementsAtProperty(obj, key) {
+    // your code here
+    return 0;
 }

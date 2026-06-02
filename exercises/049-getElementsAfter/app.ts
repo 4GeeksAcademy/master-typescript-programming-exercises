@@ -1,6 +1,6 @@
-function getElementsAfter(array: unknown[], n: unknown, arg3: number): string {
+function getElementsAfter(array: unknown[], n: number): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

@@ -1,4 +1,4 @@
-function areValidCredentials(name: string, pass: string): boolean {
+function areValidCredentials(name: unknown[], pass: unknown[]): boolean {
   // your code here
   return false;
 }

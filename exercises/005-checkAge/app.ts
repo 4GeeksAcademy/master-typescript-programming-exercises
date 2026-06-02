@@ -1,6 +1,5 @@
-function checkAge(name: string, age: number): string {
+function checkAge(name: string, age: number) {
   // your code here
-    return '';
 }
 
 export {};

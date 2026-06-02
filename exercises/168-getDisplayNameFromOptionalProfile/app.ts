@@ -1,4 +1,9 @@
-function getDisplayName(profile: Record<string, unknown>, arg2: unknown): string {
+interface Profile {
+  firstName: string;
+  nickname?: string;
+}
+
+function getDisplayName(profile: Profile): string {
   // your code here
   return '';
 }

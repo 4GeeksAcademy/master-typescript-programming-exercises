@@ -1,6 +1,6 @@
-function removeFromBack(arr: unknown[], arg2: number, arg3: unknown): string {
+function removeFromBack(arr: unknown[]): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

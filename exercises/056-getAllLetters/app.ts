@@ -1,6 +1,6 @@
-function getAllLetters(str: string): string {
+function getAllLetters(str: unknown[]): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

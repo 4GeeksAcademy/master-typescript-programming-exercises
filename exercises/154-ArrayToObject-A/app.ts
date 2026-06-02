@@ -1,6 +1,6 @@
-function transformFirstAndLast(array: unknown[], arg2: string): string {
+function transformFirstAndLast(array: unknown[]): Record<string, unknown> {
   // your code here
-  return '';
+  return {} as Record<string, unknown>;
 }
 
 export {};

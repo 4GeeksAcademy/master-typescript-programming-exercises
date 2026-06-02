@@ -1,6 +1,6 @@
-function fromListToObject(array: unknown[], arg2: string, arg3: unknown[], arg4: string, arg5: unknown): string {
+function fromListToObject(array: unknown[]): Record<string, unknown> {
   // your code here
-  return '';
+  return {} as Record<string, unknown>;
 }
 
 export {};

@@ -1,6 +1,12 @@
-function comparePassByValueAndReference(input: unknown): Record<string, unknown> {
+interface ComparisonResult {
+  original: unknown;
+  copy: unknown;
+  sameReference: boolean;
+}
+
+function comparePassByValueAndReference(input: unknown): ComparisonResult {
   // your code here
-  return {};
+  return {} as ComparisonResult;
 }
 
 export {};

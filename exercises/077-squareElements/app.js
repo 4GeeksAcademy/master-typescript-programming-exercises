@@ -1,4 +1,6 @@
-function squareElements(arr, arg2, arg3) {
-  // your code here
-  return [];
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function squareElements(arr) {
+    // your code here
+    return [];
 }

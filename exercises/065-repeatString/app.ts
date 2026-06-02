@@ -1,6 +1,5 @@
-function repeatString(string: string, num: number): string {
+function repeatString(string: Record<string, unknown>, num: number) {
   // your code here
-  return '';
 }
 
 export {};

@@ -1,7 +1,6 @@
-class PhoneNumberFormatter {
-  constructor(...args: unknown[]) {
-    // your code here
-  }
+function PhoneNumberFormatter(numbers: number): number {
+  // your code here
+  return 0;
 }
 
 export {};

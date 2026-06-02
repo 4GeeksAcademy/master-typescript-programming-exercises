@@ -1,6 +1,11 @@
-function renameBookImmutable(book: unknown, newTitle: string): Record<string, unknown> {
+interface Book {
+  title: string;
+  author: string;
+}
+
+function renameBookImmutable(book: Book, newTitle: string): Book {
   // your code here
-  return {};
+  return {} as Book;
 }
 
 export {};

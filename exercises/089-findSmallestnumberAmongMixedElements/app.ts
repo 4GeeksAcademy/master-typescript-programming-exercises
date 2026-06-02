@@ -1,4 +1,4 @@
-function findSmallestNumberAmongMixedElements(arr: unknown[], arg2: string, arg3: number, arg4: unknown): number {
+function findSmallestNumberAmongMixedElements(arr: unknown[]): number {
   // your code here
   return 0;
 }

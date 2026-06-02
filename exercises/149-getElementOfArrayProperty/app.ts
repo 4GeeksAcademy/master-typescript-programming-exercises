@@ -1,6 +1,5 @@
-function getElementOfArrayProperty(obj: Record<string, unknown>, key: string, index: number): string {
+function getElementOfArrayProperty(obj: Record<string, unknown>, key: string, index: number) {
   // your code here
-  return '';
 }
 
 export {};

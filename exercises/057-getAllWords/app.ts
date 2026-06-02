@@ -1,6 +1,6 @@
-function getAllWords(str: string): string {
+function getAllWords(str: string): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

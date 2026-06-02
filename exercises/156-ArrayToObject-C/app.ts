@@ -1,4 +1,4 @@
-function transformEmployeeData(array: unknown[], arg2: string, arg3: unknown[], arg4: string, arg5: unknown): string {
+function transformEmployeeData(array: unknown[]): string {
   // your code here
   return '';
 }

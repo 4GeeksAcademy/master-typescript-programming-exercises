@@ -1,6 +1,6 @@
-function getAllButLastElementOfProperty(obj: Record<string, unknown>, key: unknown, arg3: string): unknown[] {
+function getAllButLastElementOfProperty(obj: Record<string, unknown>, key: string): unknown[] {
   // your code here
-    return [];
+  return [];
 }
 
 export {};

@@ -1,6 +1,6 @@
-function filterEvenLengthWords(words: unknown[], arg2: string): number {
+function filterEvenLengthWords(words: unknown[]): unknown[] {
   // your code here
-    return 0;
+  return [];
 }
 
 export {};

@@ -1,4 +1,9 @@
-function isPersonOldEnoughToVote(arg1: Record<string, unknown>): boolean {
+function isPersonOldEnoughToDrive(person: Record<string, unknown>): boolean {
+  // your code here
+  return false;
+}
+
+function isPersonOldEnoughToVote(a: Record<string, unknown>): boolean {
   // your code here
   return false;
 }

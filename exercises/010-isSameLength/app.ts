@@ -1,4 +1,4 @@
-function isSameLength(word1: string, word2: string): boolean {
+function isSameLength(word1: unknown[], word2: unknown[]): boolean {
   // your code here
   return false;
 }

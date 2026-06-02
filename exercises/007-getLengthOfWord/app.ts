@@ -1,6 +1,5 @@
-function getLengthOfWord(word: string): number {
+function getLengthOfWord(word: unknown[]) {
   // your code here
-  return 0;
 }
 
 export {};

@@ -1,4 +1,4 @@
-function isGreaterThanTen(num: number): boolean {
+function isGreaterThanTen(a: number): boolean {
   // your code here
   return false;
 }

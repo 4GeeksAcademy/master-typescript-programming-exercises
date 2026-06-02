@@ -1,6 +1,6 @@
-function getSquaredElementsAtProperty(obj: Record<string, unknown>, key: number, arg3: unknown, arg4: string): unknown[] {
+function getSquaredElementsAtProperty(obj: Record<string, unknown>, key: string): unknown[] {
   // your code here
-    return [];
+  return [];
 }
 
 export {};

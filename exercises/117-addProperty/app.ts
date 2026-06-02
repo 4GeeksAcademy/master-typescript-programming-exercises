@@ -1,6 +1,6 @@
-function addProperty(obj: Record<string, unknown>, key: string): unknown[] {
+function addProperty(obj: Record<string, unknown>, key: string): Record<string, unknown> {
   // your code here
-    return [];
+  return {} as Record<string, unknown>;
 }
 
 export {};

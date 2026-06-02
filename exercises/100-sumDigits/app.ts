@@ -1,4 +1,4 @@
-function sumDigits(num: number): number {
+function sumDigits(num: Record<string, unknown>): number {
   // your code here
   return 0;
 }
