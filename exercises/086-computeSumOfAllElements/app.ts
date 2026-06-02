@@ -1,6 +1,6 @@
-function computeSumOfAllElements(arr: unknown[]): number {
+function computeSumOfAllElements(arr: number[]): number[] {
   // your code here
-  return 0;
+  return [];
 }
 
 export {};

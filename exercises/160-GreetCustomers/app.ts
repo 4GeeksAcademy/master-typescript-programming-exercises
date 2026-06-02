@@ -1,4 +1,4 @@
-function greetCustomer(firstName: number): string {
+function greetCustomer(firstName: string): string {
   // your code here
   return '';
 }

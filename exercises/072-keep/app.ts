@@ -1,4 +1,4 @@
-function keep(arr: unknown[], keeper: number): unknown[] {
+function keep(arr: number[], keeper: number): number[] {
   // your code here
   return [];
 }

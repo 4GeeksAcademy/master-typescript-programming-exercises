@@ -1,6 +1,6 @@
-function isEvenLength(word: unknown[]): boolean {
+function isEvenLength(word: string): number {
   // your code here
-  return false;
+  return 0;
 }
 
 export {};

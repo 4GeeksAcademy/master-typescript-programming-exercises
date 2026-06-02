@@ -1,4 +1,4 @@
-function findShortestElement(arr: unknown[]): string {
+function findShortestElement(arr: string[]): string {
   // your code here
   return '';
 }

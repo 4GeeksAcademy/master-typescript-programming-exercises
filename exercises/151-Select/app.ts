@@ -1,6 +1,6 @@
-function select(arr: unknown[], obj: Record<string, unknown>): string {
+function select(arr: string[], obj: Record<string, unknown>): string[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

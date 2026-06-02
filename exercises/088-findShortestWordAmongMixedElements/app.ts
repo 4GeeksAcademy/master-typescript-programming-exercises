@@ -1,6 +1,6 @@
-function findShortestWordAmongMixedElements(arr: unknown[]): string {
+function findShortestWordAmongMixedElements(arr: string[]): string[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

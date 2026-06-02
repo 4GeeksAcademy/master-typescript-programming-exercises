@@ -1,6 +1,6 @@
-function isOddLength(word: unknown[]): boolean {
+function isOddLength(word: string): number {
   // your code here
-  return false;
+  return 0;
 }
 
 export {};

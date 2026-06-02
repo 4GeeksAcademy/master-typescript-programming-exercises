@@ -1,6 +1,6 @@
-function getFullName(firstName: number, lastName: number): number {
+function getFullName(firstName: string, lastName: string): string {
   // your code here
-  return 0;
+  return '';
 }
 
 export {};

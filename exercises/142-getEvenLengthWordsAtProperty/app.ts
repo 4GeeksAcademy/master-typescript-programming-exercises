@@ -1,4 +1,4 @@
-function getEvenLengthWordsAtProperty(obj: Record<string, unknown>, key: string): unknown[] {
+function getEvenLengthWordsAtProperty(obj: Record<string, unknown>, key: string): string[] {
   // your code here
   return [];
 }

@@ -1,4 +1,4 @@
-function removeFromFrontOfNew(arr: unknown[]): unknown[] {
+function removeFromFrontOfNew(arr: number[]): number[] {
   // your code here
   return [];
 }

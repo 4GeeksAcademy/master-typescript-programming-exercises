@@ -1,4 +1,4 @@
-function computeProductOfAllElements(arr: unknown[]): number {
+function computeProductOfAllElements(arr: number[]): number {
   // your code here
   return 0;
 }

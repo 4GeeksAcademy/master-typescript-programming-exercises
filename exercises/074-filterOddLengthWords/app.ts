@@ -1,4 +1,4 @@
-function filterOddLengthWords(words: unknown[]): unknown[] {
+function filterOddLengthWords(words: string[]): string[] {
   // your code here
   return [];
 }

@@ -1,4 +1,4 @@
-function getLongestOfThreeWords(word1: unknown[], word2: unknown[], word3: unknown[]) {
+function getLongestOfThreeWords(word1: string, word2: string, word3: string) {
   // your code here
 }
 

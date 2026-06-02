@@ -1,4 +1,4 @@
-function getLargestElement(arr: unknown[]): number {
+function getLargestElement(arr: number[]): number {
   // your code here
   return 0;
 }

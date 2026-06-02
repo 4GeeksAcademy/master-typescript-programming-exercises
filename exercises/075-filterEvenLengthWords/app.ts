@@ -1,4 +1,4 @@
-function filterEvenLengthWords(words: unknown[]): unknown[] {
+function filterEvenLengthWords(words: string[]): string[] {
   // your code here
   return [];
 }

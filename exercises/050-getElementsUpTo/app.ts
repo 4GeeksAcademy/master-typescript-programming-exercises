@@ -1,4 +1,4 @@
-function getElementsUpTo(array: unknown[], n: number): unknown[] {
+function getElementsUpTo(array: number[], n: number): string[] {
   // your code here
   return [];
 }

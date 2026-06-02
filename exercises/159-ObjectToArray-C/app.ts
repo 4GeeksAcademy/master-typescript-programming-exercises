@@ -1,6 +1,6 @@
-function convertObjectToList(obj: Record<string, unknown>): string {
+function convertObjectToList(obj: Record<string, unknown>): unknown[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

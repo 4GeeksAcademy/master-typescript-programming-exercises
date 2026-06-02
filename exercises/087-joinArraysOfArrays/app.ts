@@ -1,4 +1,4 @@
-function joinArrayOfArrays(arr: unknown[]): unknown[] {
+function joinArrayOfArrays(arr: unknown[]): number[] {
   // your code here
   return [];
 }

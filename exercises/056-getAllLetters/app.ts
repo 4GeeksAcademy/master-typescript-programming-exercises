@@ -1,4 +1,4 @@
-function getAllLetters(str: unknown[]): unknown[] {
+function getAllLetters(str: string): string[] {
   // your code here
   return [];
 }

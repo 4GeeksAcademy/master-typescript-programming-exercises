@@ -1,4 +1,4 @@
-function getLargestNumberAmongMixedElements(arr: unknown[]): number {
+function getLargestNumberAmongMixedElements(arr: number[]): number {
   // your code here
   return 0;
 }

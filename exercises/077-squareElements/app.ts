@@ -1,4 +1,4 @@
-function squareElements(arr: unknown[]): unknown[] {
+function squareElements(arr: number[]): number[] {
   // your code here
   return [];
 }

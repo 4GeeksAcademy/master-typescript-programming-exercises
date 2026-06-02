@@ -1,4 +1,4 @@
-function listAllValues(obj: Record<string, unknown>): unknown[] {
+function listAllValues(obj: Record<string, unknown>): string[] {
   // your code here
   return [];
 }

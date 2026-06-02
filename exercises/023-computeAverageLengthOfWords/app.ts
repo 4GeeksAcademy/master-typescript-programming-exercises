@@ -1,4 +1,4 @@
-function computeAverageLengthOfWords(word1: unknown[], word2: unknown[]): number {
+function computeAverageLengthOfWords(word1: string, word2: string): number {
   // your code here
   return 0;
 }
