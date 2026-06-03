@@ -1,4 +1,6 @@
 function printUserBadge(name, level) {
-  // your code here
-  
+  console.log(`[Level ${level}] ${name}`);
 }
+
+printUserBadge('Ana', 2);
+// console output --> [Level 2] Ana
