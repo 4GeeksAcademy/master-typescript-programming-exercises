@@ -1,4 +1,4 @@
 // Write your function here
-function isEqualTo(a, b) {
-    return a === b
+function isEqualTo(num1, num2) {
+    return num1 === num2
 }
