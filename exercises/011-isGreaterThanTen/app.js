@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function isGreaterThanTen(a) {
+function isGreaterThanTen(num) {
     // your code here
     return false;
 }
