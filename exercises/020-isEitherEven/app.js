@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-function isEitherEven(n1, n2) {
+function isEitherEven(num1, num2) {
     // your code here
     return false;
 }
