@@ -1,4 +1,4 @@
-function average(a: number, b: number): number {
+function average(num1: number, num2: number): number {
   // your code here
   return 0;
 }
