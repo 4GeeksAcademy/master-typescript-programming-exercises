@@ -1,4 +1,4 @@
-function isEqualTo(a: number, b: number): boolean {
+function isEqualTo(num1: number, num2: number): boolean {
   // your code here
   return false;
 }
