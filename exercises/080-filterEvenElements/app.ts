@@ -1,6 +1,6 @@
 function filterEvenElements(arr: number[]): number[] {
   // your code here
-  return [];
+  return arr.filter(a=>a%2===0);
 }
 
 export {};

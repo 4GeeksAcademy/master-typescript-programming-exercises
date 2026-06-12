@@ -1,6 +1,6 @@
 function equalsTen(num: number): boolean {
   // your code here
-  return false;
+  return num === 10;
 }
 
 export {};

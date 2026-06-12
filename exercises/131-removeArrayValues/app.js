@@ -2,5 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function removeArrayValues(obj) {
     // your code here
-    return {};
+    for (const key in obj) {
+        if (Array.isArray(obj[key])) {
+            delete obj[key];
+        }
+    }
+    return obj;
 }

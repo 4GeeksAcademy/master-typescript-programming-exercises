@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function isIsogram(text) {
     // your code here
-    return false;
+    return !/(.).*\1/i.test(text);
 }

@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function computePerimeterOfATriangle(side1, side2, side3) {
     // your code here
-    return 0;
+    return side1 + side2 + side3;
 }

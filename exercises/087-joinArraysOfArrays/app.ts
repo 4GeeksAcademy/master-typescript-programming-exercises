@@ -1,6 +1,6 @@
-function joinArrayOfArrays(arr: unknown[]): unknown[] {
+function joinArrayOfArrays(arr: any[]): unknown[] {
   // your code here
-  return [];
+  return arr.reduce((a,e)=>Array.isArray(e) ? [...a, ...joinArrayOfArrays(e)]:[...a, e], []);
 }
 
 export {};

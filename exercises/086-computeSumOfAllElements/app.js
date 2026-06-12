@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function computeSumOfAllElements(arr) {
     // your code here
-    return 0;
+    return arr.reduce((a, e) => a + e, 0);
 }

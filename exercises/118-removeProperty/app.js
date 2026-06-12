@@ -2,4 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function removeProperty(obj, key) {
     // your code here
+    delete obj[key];
 }

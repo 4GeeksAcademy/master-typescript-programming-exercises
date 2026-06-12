@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function isOddWithoutModulo(num) {
     // your code here
-    return false;
+    return Math[num < 0 ? 'ceil' : 'floor'](num / 2) !== num / 2;
 }

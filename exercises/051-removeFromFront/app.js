@@ -2,5 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function removeFromFront(arr) {
     // your code here
-    return [];
+    arr.shift();
+    return arr;
 }

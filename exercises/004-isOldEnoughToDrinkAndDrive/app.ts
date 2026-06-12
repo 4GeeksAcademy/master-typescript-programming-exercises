@@ -1,6 +1,6 @@
 function isOldEnoughToDrinkAndDrive(age: number): boolean {
   // your code here
-  return false;
+  return false
 }
 
 export {};

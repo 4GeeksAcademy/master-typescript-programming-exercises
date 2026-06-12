@@ -1,6 +1,6 @@
 function isIsogram(text: string): boolean {
   // your code here
-  return false;
+  return !/(.).*\1/i.test(text)
 }
 
 export {};

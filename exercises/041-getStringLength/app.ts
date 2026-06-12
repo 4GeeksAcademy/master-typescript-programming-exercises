@@ -1,6 +1,6 @@
 function getStringLength(string: string): number {
   // your code here
-  return 0;
+  return string.split('').reduce(a=>++a,0);
 }
 
 export {};

@@ -1,5 +1,5 @@
 function getFirstElement(array: number[]) {
-  // your code here
+  return array[0]
 }
 
 export {};

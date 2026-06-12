@@ -1,6 +1,6 @@
-function getLengthOfShortestElement(arr: number[]): number {
+function getLengthOfShortestElement(arr: string[]): number {
   // your code here
-  return 0;
+  return arr.length ? arr.reduce((a,e)=>e.length<a?e.length:a,Infinity) : 0;
 }
 
 export {};

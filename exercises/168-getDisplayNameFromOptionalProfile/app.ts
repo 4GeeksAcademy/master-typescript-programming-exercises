@@ -5,7 +5,7 @@ interface Profile {
 
 function getDisplayName(profile: Profile): string {
   // your code here
-  return '';
+  return profile.nickname ?? profile.firstName;
 }
 
 export {};

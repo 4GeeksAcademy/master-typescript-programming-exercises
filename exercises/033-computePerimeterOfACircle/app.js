@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function computePerimeterOfACircle(radius) {
     // your code here
-    return 0;
+    return (radius * Math.PI) * 2;
 }
