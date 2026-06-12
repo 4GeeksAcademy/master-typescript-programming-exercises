@@ -1,6 +1,7 @@
-function addProperty(obj: Record<string, unknown>, key: string): boolean {
+function addProperty(obj: Record<string, unknown>, key: string): {[key: string]: boolean} {
   // your code here
-  return false;
+  obj[key] = true;
+  return obj as {[key:string]: boolean};
 }
 
 export {};

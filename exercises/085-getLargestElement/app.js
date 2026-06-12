@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function getLargestElement(arr) {
     // your code here
-    return 0;
+    return arr.length ? arr.reduce((a, e) => !a ? e : e > a ? e : a) : 0;
 }

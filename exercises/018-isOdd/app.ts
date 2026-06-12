@@ -1,6 +1,6 @@
 function isOdd(num: number): boolean {
   // your code here
-  return false;
+  return num % 2 === 1;
 }
 
 export {};

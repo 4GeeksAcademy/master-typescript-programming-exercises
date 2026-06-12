@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function computeSquareRoot(num) {
     // your code here
-    return 0;
+    return Math.sqrt(num);
 }

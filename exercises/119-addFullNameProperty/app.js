@@ -2,5 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function addFullNameProperty(obj) {
     // your code here
-    return false;
+    obj.fullName = `${obj.firstName} ${obj.lastName}`;
+    return obj;
 }

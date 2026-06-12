@@ -1,6 +1,6 @@
 function removeElement(arr: number[], n: number): number[] {
   // your code here
-  return [];
+  return arr.filter(a => a !== n);
 }
 
 export {};

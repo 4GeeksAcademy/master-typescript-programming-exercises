@@ -1,6 +1,6 @@
 function areBothOdd(num1: number, num2: number): boolean {
   // your code here
-  return false;
+  return num1 % 2 === 1 && num2 % 2 === 1;
 }
 
 export {};

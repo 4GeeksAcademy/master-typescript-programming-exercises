@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function comparePassByValueAndReference(input) {
     // your code here
-    return {};
+    return { externalCount: input.count };
 }

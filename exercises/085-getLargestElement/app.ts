@@ -1,6 +1,6 @@
 function getLargestElement(arr: number[]): number {
   // your code here
-  return 0;
+  return arr.length ? arr.reduce((a,e)=>!a?e:e>a?e:a) : 0;
 }
 
 export {};

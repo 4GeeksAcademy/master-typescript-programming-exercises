@@ -1,6 +1,6 @@
 function filterOddElements(arr: number[]): number[] {
   // your code here
-  return [];
+  return arr.filter(a=>a%2===1);
 }
 
 export {};

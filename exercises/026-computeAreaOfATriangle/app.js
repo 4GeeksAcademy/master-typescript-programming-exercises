@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function computeAreaOfATriangle(a, b) {
     // your code here
-    return 0;
+    return (a * b) / 2;
 }

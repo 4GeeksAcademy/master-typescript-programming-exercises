@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function calculateBillTotal(preTaxAndTipAmount) {
     // your code here
-    return 0;
+    return preTaxAndTipAmount * 1.095 + preTaxAndTipAmount * 0.15;
 }

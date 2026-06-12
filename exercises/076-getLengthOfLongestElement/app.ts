@@ -1,6 +1,6 @@
-function getLengthOfLongestElement(arr: number[]): number {
+function getLengthOfLongestElement(arr: string[]): number {
   // your code here
-  return 0;
+  return arr.reduce((a,b)=>b.length > a ? b.length : a, 0);
 }
 
 export {};

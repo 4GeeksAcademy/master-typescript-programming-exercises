@@ -2,5 +2,5 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function computeProductOfAllElements(arr) {
     // your code here
-    return 0;
+    return arr.length ? arr.reduce((a, e, i) => a * e) : 0;
 }

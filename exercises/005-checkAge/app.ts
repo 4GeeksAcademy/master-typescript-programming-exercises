@@ -1,6 +1,6 @@
-function checkAge(name: string, age: number): boolean {
+function checkAge(name: string, age: number): string {
   // your code here
-  return false;
+  return `${age < 21 ? 'Go home' : 'Welcome'}, ${name}!`;
 }
 
 export {};

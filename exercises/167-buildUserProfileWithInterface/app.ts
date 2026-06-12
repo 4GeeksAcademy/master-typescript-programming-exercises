@@ -6,7 +6,7 @@ interface UserProfile {
 
 function buildUserProfile(name: string, age: number): UserProfile {
   // your code here
-  return {} as UserProfile;
+  return {name, age, isAdult: age >= 18} as UserProfile;
 }
 
 export {};

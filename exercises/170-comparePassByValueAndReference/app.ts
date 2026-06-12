@@ -6,7 +6,7 @@ interface ComparisonResult {
 
 function comparePassByValueAndReference(input: unknown): ComparisonResult {
   // your code here
-  return {} as ComparisonResult;
+  return {externalCount: input.count} as ComparisonResult;
 }
 
 export {};

@@ -2,5 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 function removeOddValues(obj) {
     // your code here
-    return {};
+    for (const key in obj) {
+        if (typeof obj[key] === 'number' && obj[key] % 2 !== 0) {
+            delete obj[key];
+        }
+    }
+    return obj;
 }
