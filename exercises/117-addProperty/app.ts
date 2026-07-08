@@ -1,6 +1,6 @@
-function addProperty(obj: Record<string, unknown>, key: string): boolean {
+function addProperty(obj: Record<string, unknown>, key: string): Record<string, unknown> {
   // your code here
-  return false;
+  return {};
 }
 
 export {};

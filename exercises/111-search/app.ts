@@ -1,4 +1,4 @@
-function search(array: number[], value: number): number {
+function search(array: number[], value: number): number | null {
   // your code here
   return 0;
 }

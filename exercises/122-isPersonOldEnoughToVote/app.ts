@@ -1,9 +1,8 @@
-function isPersonOldEnoughToDrive(person: Record<string, unknown>): boolean {
-  // your code here
-  return false;
+interface Person {
+  age: number;
 }
 
-function isPersonOldEnoughToVote(a: Record<string, unknown>): boolean {
+function isPersonOldEnoughToVote(person: Person): boolean {
   // your code here
   return false;
 }

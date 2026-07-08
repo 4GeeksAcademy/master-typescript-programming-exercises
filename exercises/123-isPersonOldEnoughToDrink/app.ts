@@ -1,4 +1,8 @@
-function isPersonOldEnoughToDrink(person: Record<string, unknown>): boolean {
+interface Person {
+  age: number;
+}
+
+function isPersonOldEnoughToDrink(person: Person): boolean {
   // your code here
   return false;
 }

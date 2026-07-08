@@ -1,6 +1,6 @@
-function addFullNameProperty(obj: Record<string, unknown>): boolean {
+function addFullNameProperty(obj: Record<string, unknown>): Record<string, unknown> {
   // your code here
-  return false;
+  return {};
 }
 
 export {};
