@@ -1,4 +1,4 @@
-# `157.1` ObjectToArray
+# `157` ObjectToArray
 
 ## 📝 Instrucciones:
 

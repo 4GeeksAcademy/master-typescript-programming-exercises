@@ -1,6 +1,6 @@
-function transformEmployeeData(array: unknown[]): string {
+function transformEmployeeData(array: unknown[]): Record<string, unknown>[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};
