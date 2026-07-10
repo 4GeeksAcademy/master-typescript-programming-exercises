@@ -1,4 +1,4 @@
-# `166.4` FashionInventory-D
+# `166` FashionInventory-D
 
 You have a fashion catalog, an inventory of items from various high-fashion designers.
 

@@ -8,9 +8,14 @@ interface InventoryItem {
   shoes: Shoe[];
 }
 
-function renderAverageCostPerDesigner(inventory: InventoryItem[]): string {
+interface Result {
+  name: string;
+  averagePrice: number;
+}
+
+function renderAverageCostPerDesigner(inventory: InventoryItem[]): Result[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

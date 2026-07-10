@@ -1,6 +1,6 @@
-function renderInventory(shoeList: unknown[][]): string {
+function renderInventory(shoeList: unknown[][]): unknown[][] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

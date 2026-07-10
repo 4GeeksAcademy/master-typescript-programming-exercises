@@ -1,4 +1,4 @@
-# `164.2` FashionInventory-B
+# `164` FashionInventory-B
  
 Es la misma estructura de datos de inventario que antes, tienes un catálogo de moda llamado `currentInventory` que corresponde a un inventario de artículos de varios diseñadores de alta costura. Cada diseñador tiene una línea de zapatos y cada zapato tiene un nombre y un precio.
 

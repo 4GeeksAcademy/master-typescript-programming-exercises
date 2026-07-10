@@ -1,6 +1,6 @@
-function getLaceNameDataForShoes(inventory: unknown[][]): string {
+function getLaceNameDataForShoes(inventory: unknown[][]): Record<string, unknown>[] {
   // your code here
-  return '';
+  return [];
 }
 
 export {};

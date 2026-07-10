@@ -1,4 +1,4 @@
-# `165.3` FashionInventory-C
+# `165` FashionInventory-C
 
 Es la misma estructura de datos del inventario `currentInventory` de antes, pero ahora debes encontrar todos los zapatos negros (con el string `black`). 
 
