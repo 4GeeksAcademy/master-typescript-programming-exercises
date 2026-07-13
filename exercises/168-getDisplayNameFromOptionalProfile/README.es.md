@@ -1,8 +1,27 @@
-# 168-getDisplayNameFromOptionalProfile
+# `168` getDisplayNameFromOptionalProfile
 
-Usa propiedades opcionales para devolver nickname o nombre.
+## 📝 Instrucciones:
 
-## Instrucciones
+1. Escribe una función llamada `getDisplayName`. Dado un objeto `Profile`, `getDisplayName` devuelve el nombre a mostrar:
 
-Implementa `getDisplayName` en `app.ts` usando tipos de TypeScript.
+   - Si se proporciona `nickname`, devuelve el apodo.
+   - De lo contrario, devuelve `firstName`.
 
+2. Usa la interfaz `Profile` ya definida en `app.ts` (ten en cuenta que `nickname` es opcional).
+
+## 📎 Ejemplo:
+
+```ts
+let output = getDisplayName({ firstName: 'Ana', nickname: 'Annie' });
+console.log(output); // --> 'Annie'
+```
+
+```ts
+let output = getDisplayName({ firstName: 'Ana' });
+console.log(output); // --> 'Ana'
+```
+
+## 💡 Pistas:
+
++ Una propiedad opcional puede no estar presente en el objeto.
++ Puedes usar `profile.nickname ?? profile.firstName` o un `if`.

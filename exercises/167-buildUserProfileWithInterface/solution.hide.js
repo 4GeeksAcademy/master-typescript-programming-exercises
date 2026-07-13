@@ -1,10 +1,9 @@
-interface UserProfile {
-  name: string;
-  age: number;
-  isAdult: boolean;
+function buildUserProfile(name, age) {
+  return {
+    name,
+    age,
+    isAdult: age >= 18,
+  };
 }
 
-function buildUserProfile(name, age) {
-  // your code here
-  return {};
-}
+console.log(buildUserProfile('Leo', 20)); // --> { name: 'Leo', age: 20, isAdult: true }
