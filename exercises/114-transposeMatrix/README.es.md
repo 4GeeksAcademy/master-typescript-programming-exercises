@@ -1,8 +1,21 @@
-# 114-transposeMatrix
+# `114` transposeMatrix
 
-Devuelve la transpuesta de una matriz (filas pasan a columnas).
+## 📝 Instrucciones:
 
-## Instrucciones
+1. Escribe una función llamada `transposeMatrix`. Dada una matriz (un array bidimensional), `transposeMatrix` devuelve su **transpuesta**: las filas pasan a ser columnas y las columnas pasan a ser filas.
 
-Implementa `transposeMatrix` en `app.ts` usando tipos de TypeScript.
+## 📎 Ejemplo:
 
+```ts
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+];
+let output = transposeMatrix(matrix);
+console.log(output); // --> [[1, 4], [2, 5], [3, 6]]
+```
+
+## 💡 Pistas:
+
++ La primera fila de la matriz original se convierte en la primera columna del resultado.
++ Puedes construir cada fila nueva recogiendo los valores de la misma columna en todas las filas originales.

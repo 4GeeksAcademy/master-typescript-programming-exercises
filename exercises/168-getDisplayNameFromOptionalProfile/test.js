@@ -5,6 +5,14 @@ test('Function getDisplayName must exist', () => {
   expect(getDisplayName).not.toBe(undefined);
 });
 
-test('Case 1', () => { expect(getDisplayName({ firstName: 'Ana', nickname: 'Annie' })).toBe('Annie'); });
+test('Function getDisplayName must return the nickname when it is provided', () => {
+  expect(getDisplayName({ firstName: 'Ana', nickname: 'Annie' })).toBe('Annie');
+});
 
-test('Case 2', () => { expect(getDisplayName({ firstName: 'Ana' })).toBe('Ana'); });
+test('Function getDisplayName must return firstName when nickname is missing', () => {
+  expect(getDisplayName({ firstName: 'Ana' })).toBe('Ana');
+});
+
+test('Function getDisplayName must return firstName when nickname is undefined', () => {
+  expect(getDisplayName({ firstName: 'Ana', nickname: undefined })).toBe('Ana');
+});

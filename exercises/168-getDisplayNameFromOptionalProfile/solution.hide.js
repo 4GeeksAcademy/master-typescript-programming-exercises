@@ -1,4 +1,6 @@
 function getDisplayName(profile) {
-  // your code here
-  return '';
+  return profile.nickname ?? profile.firstName;
 }
+
+console.log(getDisplayName({ firstName: 'Ana', nickname: 'Annie' })); // --> 'Annie'
+console.log(getDisplayName({ firstName: 'Ana' })); // --> 'Ana'

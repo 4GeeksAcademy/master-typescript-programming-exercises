@@ -1,8 +1,28 @@
-# 113-getMatrixValue
+# `113` getMatrixValue
 
-Read a value from a matrix by row and column index safely.
+## 📝 Instructions:
 
-## Instructions
+1. Write a function called `getMatrixValue`. Given a matrix (a two-dimensional array), a row index, and a column index, `getMatrixValue` returns the value stored at that position.
 
-Implement `getMatrixValue` in `app.ts` using TypeScript types.
+2. If the row or column does not exist, the function must return `undefined`.
 
+## 📎 Example:
+
+```ts
+let matrix = [
+  [1, 2],
+  [3, 4],
+];
+let output = getMatrixValue(matrix, 1, 0);
+console.log(output); // --> 3
+```
+
+```ts
+let output = getMatrixValue(matrix, 4, 0);
+console.log(output); // --> undefined
+```
+
+## 💡 Hints:
+
++ A matrix is an array of arrays: `matrix[row][col]`.
++ Check that the row exists before reading the column.
